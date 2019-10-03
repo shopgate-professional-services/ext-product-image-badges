@@ -1,0 +1,49 @@
+{
+  "version": "1.0.0",
+  "id": "@shopgate-project/product-image-badges",
+  "components": [
+    {
+      "id": "ComponentsProductImageAfter",
+      "type": "portals",
+      "path": "frontend/portals/ComponentProductImageAfter",
+      "target": "component.product-image.after"
+    }
+  ],
+  "configuration": {
+    "badgeMap": {
+      "type": "admin",
+      "default": [
+        {
+          "tags": [
+            "preorder"
+          ],
+          "properties": [],
+          "src": "http://data.shopgate.com/shop_widget_images/25579/cc257d580e2d65f88db9ed490fc512ac.min.png"
+        },
+        {
+          "tag": [
+            "gs24"
+          ],
+          "properties": [],
+          "src": "http://data.shopgate.com/shop_widget_images/25579/13c29bdf6bc108777a5062fc774d6bdf.min.png"
+        }
+      ],
+      "destination": "frontend",
+      "params": {
+        "label": "Mapping for tag and image srcs",
+        "description": "The various tags/properties and src associations for extension. The badge hierarchy for items with multiple trigger tags is determined by array.",
+        "type": "json"
+      }
+    },
+    "badgeDisplayCount": {
+      "type": "admin",
+      "default": 1,
+      "destination": "frontend",
+      "params": {
+        "label": "Total badges to display",
+        "description": "The count for the number of badges to display",
+        "type": "number"
+      }
+    }
+  }
+}
