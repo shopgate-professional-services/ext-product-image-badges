@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import GridBadge from '../../components/GridBadge';
-import CardBadge from '../../components/CardBadge';
-import { PRODUCT_CARD_LOCATION } from '../../constants';
+import Badge from '../../components/Badge';
 import connect from '../connector';
 
 /**
@@ -15,11 +13,7 @@ const ProductItemPriceBefore = ({ location, badgeInfo }) => {
     return null;
   }
 
-  const badge = location === PRODUCT_CARD_LOCATION ?
-    (<CardBadge badgeInfo={badgeInfo} />) :
-    (<GridBadge badgeInfo={badgeInfo} />);
-
-  return badge;
+  return <Badge location={location} badgeInfo={badgeInfo} />;
 };
 
 ProductItemPriceBefore.propTypes = {

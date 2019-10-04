@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withCurrentProduct } from '@shopgate/engage/core';
-import PDPBadge from '../../components/PDPBadge';
+import { PRODUCT_DETAILS_PAGE_LOCATION } from '../../constants';
+import Badge from '../../components/Badge';
 import connect from '../connector';
 
 /**
@@ -14,7 +15,7 @@ function ComponentProductImageBefore({ badgeInfo }) {
   }
 
   return (
-    <PDPBadge badgeInfo={badgeInfo} />
+    <Badge location={PRODUCT_DETAILS_PAGE_LOCATION} badgeInfo={badgeInfo} />
   );
 }
 

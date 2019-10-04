@@ -23,7 +23,8 @@ export const hasTriggerProp = (additionalProperties, triggerProps) => {
   }
 
   return additionalProperties.some(obj =>
-    triggerProps.some(trigger => trigger === obj.label));
+    triggerProps.some(trigger =>
+      trigger.label === obj.label && trigger.value === obj.value));
 };
 
 /**

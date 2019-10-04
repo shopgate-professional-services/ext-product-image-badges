@@ -12,18 +12,14 @@ Default Values:
 {
   "badgeMap": [
     {
-      "tags": [
-        "preorder"
-      ],
+      "tags": [],
       "properties": [],
-      "src": "http://data.shopgate.com/shop_widget_images/25579/cc257d580e2d65f88db9ed490fc512ac.min.png"
+      "src": ""
     },
     {
-      "tag": [
-        "gs24"
-      ],
+      "tag": [],
       "properties": [],
-      "src": "http://data.shopgate.com/shop_widget_images/25579/13c29bdf6bc108777a5062fc774d6bdf.min.png"
+      "src": ""
     }
   ]
 }
