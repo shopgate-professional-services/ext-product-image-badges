@@ -7,19 +7,37 @@ There are two required configurations for this extension.
 
 #### badgeMap: 
 The configuration badgeMap will be used to determine which product tags or properties are used to denote the need for the associated badge to be added to the product image
-Default Values:
+Example Value:
 ```json
 {
   "badgeMap": [
     {
-      "tags": [],
-      "properties": [],
-      "src": ""
+      "triggerTags": ["tag-1", "tag-2"],
+      "triggerProps": [
+        {
+          "label":"triggerProp-1",
+          "value": true
+        },
+        {
+          "label":"triggerProp-2",
+          "value": false
+        }
+      ],
+      "src": "exampleImage1.com"
     },
     {
-      "tag": [],
-      "properties": [],
-      "src": ""
+      "triggerTags": ["exampleTag-1", "exampleTag-2"],
+      "triggerProps": [
+        {
+          "label":"exampleTriggerProp-1",
+          "value": "yes"
+        },
+        {
+          "label":"exampleTriggerProp-2",
+          "value": "no"
+        }
+      ],
+      "src": "exampleImage2.com"
     }
   ]
 }

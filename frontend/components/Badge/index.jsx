@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import Image from '@shopgate/pwa-common/components/Image';
 import {
   PRODUCT_DETAILS_PAGE_LOCATION,
   PRODUCT_CARD_LOCATION,
@@ -21,7 +20,7 @@ const CardBadge = ({ location, badgeInfo }) => {
   );
 
   const images = badgeInfo.map((image, index) => (
-    <Image className={imageClass} src={image} alt="" key={index.toString()} />
+    <img className={imageClass} src={image} alt="" key={index.toString()} />
   ));
 
   return (
