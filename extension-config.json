@@ -3,10 +3,16 @@
   "id": "@shopgate-project/product-image-badges",
   "components": [
     {
-      "id": "ComponentsProductImageAfter",
+      "id": "ProductItemPriceBefore",
       "type": "portals",
-      "path": "frontend/portals/ComponentProductImageAfter",
-      "target": "component.product-image.after"
+      "path": "frontend/portals/ProductItemPriceBefore",
+      "target": "product-item.price.before"
+    },
+    {
+      "id": "ComponentProductImageBefore",
+      "type": "portals",
+      "path": "frontend/portals/ComponentProductImageBefore",
+      "target": "component.product-image.before"
     }
   ],
   "configuration": {
@@ -14,18 +20,14 @@
       "type": "admin",
       "default": [
         {
-          "tags": [
-            "preorder"
-          ],
-          "properties": [],
-          "src": "http://data.shopgate.com/shop_widget_images/25579/cc257d580e2d65f88db9ed490fc512ac.min.png"
+          "triggerTags": [],
+          "triggerProps": [],
+          "src": ""
         },
         {
-          "tag": [
-            "gs24"
-          ],
-          "properties": [],
-          "src": "http://data.shopgate.com/shop_widget_images/25579/13c29bdf6bc108777a5062fc774d6bdf.min.png"
+          "triggerTags": [],
+          "triggerProps": [],
+          "src": ""
         }
       ],
       "destination": "frontend",
@@ -43,6 +45,45 @@
         "label": "Total badges to display",
         "description": "The count for the number of badges to display",
         "type": "number"
+      }
+    },
+    "gridBadgeRatio": {
+      "type": "admin",
+      "default": {
+        "width": 50,
+        "height": 70.42
+      },
+      "destination": "frontend",
+      "params": {
+        "label": "Image ratio for badges within a grid view",
+        "description": "Set height and width to configure a ratio for badges with product images in a grid view",
+        "type": "json"
+      }
+    },
+    "cardBadgeRatio": {
+      "type": "admin",
+      "default": {
+        "width": 40,
+        "height": 56.33
+      },
+      "destination": "frontend",
+      "params": {
+        "label": "Image ratio for badges within a carde view",
+        "description": "Set height and width to configure a ratio for badges with product images in a card view",
+        "type": "json"
+      }
+    },
+    "pdpBadgeRatio": {
+      "type": "admin",
+      "default": {
+        "width": 60,
+        "height": 84.5
+      },
+      "destination": "frontend",
+      "params": {
+        "label": "Image ratio for badges within a PDP",
+        "description": "Set height and width to configure a ratio for badges with product images on a PDP",
+        "type": "json"
       }
     }
   }
