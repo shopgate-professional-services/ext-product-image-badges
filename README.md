@@ -2,8 +2,18 @@
 
 Extension will allow a merchant to display a image badge on a product image based on tag or property. If you wish to use a property then you must use extension [proudcts-add-properties](https://github.com/shopgate/ext-products-add-properties) in order to have the property exposed in the same location as tags.
 
+## Features
+- Can trigger badges with tags or properties. Must use [proudcts-add-properties](https://github.com/shopgate/ext-products-add-properties) for trigger properties.
+- Badges will appear in product slider, product grids, and product images on PDP page.
+- Configuration for multiple badges per image.
+- Badge hierarchy is deterimend by the order of badges in badgeMap config. With highest priority starting at index 0.
+- Unique badge images can trigger for multiple tags or properties.
+
+## Demo & Examples
+[See here](demo/index.md)
+
 ## Configuration
-There are two required configurations for this extension.
+There are five required configurations for this extension.
 
 #### badgeMap: 
 The configuration badgeMap will be used to determine which product tags or properties are used to denote the need for the associated badge to be added to the product image
