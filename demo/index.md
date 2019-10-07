@@ -36,7 +36,7 @@
 }
 ```
 
-## Two badged with trigger tags
+## Two badges with trigger tags
 ![](two-badges-tags.png)
 ```json
 {
