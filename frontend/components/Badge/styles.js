@@ -2,7 +2,7 @@ import { css } from 'glamor';
 import { cardBadgeRatio, gridBadgeRatio, pdpBadgeRatio } from '../../config';
 
 const container = css({
-  display: 'float',
+  display: 'inline',
   position: 'absolute',
   right: 0,
   top: 0,

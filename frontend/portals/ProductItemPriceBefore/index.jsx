@@ -1,5 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {
+  PRODUCT_GRID_LOCATION,
+} from '../../constants';
 import Badge from '../../components/Badge';
 import connect from '../connector';
 
@@ -9,7 +12,7 @@ import connect from '../connector';
  * @returns {JSX}
  */
 const ProductItemPriceBefore = ({ location, badgeInfo }) => {
-  if (!location || !badgeInfo || badgeInfo.length === 0) {
+  if (!location || location === PRODUCT_GRID_LOCATION || !badgeInfo || badgeInfo.length === 0) {
     return null;
   }
 
@@ -17,12 +20,13 @@ const ProductItemPriceBefore = ({ location, badgeInfo }) => {
 };
 
 ProductItemPriceBefore.propTypes = {
-  location: PropTypes.string.isRequired,
   badgeInfo: PropTypes.arrayOf(PropTypes.string),
+  location: PropTypes.string,
 };
 
 ProductItemPriceBefore.defaultProps = {
   badgeInfo: null,
+  location: null,
 };
 
 export default connect(ProductItemPriceBefore);
