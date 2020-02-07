@@ -21,18 +21,7 @@
     }
   ],
   "badgeDisplayCount": 1,
-  "gridBadgeRatio": {
-    "width": 50,
-    "height": 70.42
-  },
-  "cardBadgeRatio": {
-    "width": 40,
-    "height": 56.33
-  },
-  "pdpBadgeRatio": {
-    "width": 60,
-    "height": 84.5
-  }
+  "badgeWidth": "25"
 }
 ```
 
@@ -57,18 +46,7 @@
     }
   ],
   "badgeDisplayCount": 2,
-  "gridBadgeRatio": {
-    "width": 50,
-    "height": 70.42
-  },
-  "cardBadgeRatio": {
-    "width": 40,
-    "height": 56.33
-  },
-  "pdpBadgeRatio": {
-    "width": 60,
-    "height": 84.5
-  }
+  "badgeWidth": "25"
 }
 ```
 
@@ -101,18 +79,7 @@
     }
   ],
   "badgeDisplayCount": 1,
-  "gridBadgeRatio": {
-    "width": 50,
-    "height": 70.42
-  },
-  "cardBadgeRatio": {
-    "width": 40,
-    "height": 56.33
-  },
-  "pdpBadgeRatio": {
-    "width": 60,
-    "height": 84.5
-  }
+  "badgeWidth": "25"
 }
  ```
 
@@ -145,17 +112,6 @@
     }
   ],
   "badgeDisplayCount": 2,
-  "gridBadgeRatio": {
-    "width": 50,
-    "height": 70.42
-  },
-  "cardBadgeRatio": {
-    "width": 40,
-    "height": 56.33
-  },
-  "pdpBadgeRatio": {
-    "width": 60,
-    "height": 84.5
-  }
+  "badgeWidth": "25"
 }
  ```
