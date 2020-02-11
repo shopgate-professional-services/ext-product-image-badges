@@ -68,10 +68,10 @@ Default Values:
 ```
 
 #### badgeWidth:
-This configuration is used to set a max badge width in percentage or px so that you can control the maximum width for large images.
+This configuration is used to set a max badge width in px so that you can control the maximum width for large images.
 Default Values:
 ```json
-  "maxBadgeWidth": "200px"
+  "maxBadgeWidth": "200"
 ```
 
 ## About Shopgate

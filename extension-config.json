@@ -69,7 +69,7 @@
       "destination": "frontend",
       "params": {
         "label": "Maximum Badge Width",
-        "description": "Maximum badge width can be set to px or %",
+        "description": "Maximum badge width can be set to px",
         "type": "text"
       }
     }
