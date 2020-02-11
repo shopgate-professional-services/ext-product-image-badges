@@ -115,3 +115,58 @@
   "badgeWidth": "25"
 }
  ```
+
+ ## maxWidth Configuration
+ ![](no-max-width.png)
+
+ **Config**
+```json
+{
+  "badgeMap": [
+    {
+      "triggerTags": [
+        "preorder"
+      ],
+      "triggerProps": [],
+      "src": "http://data.shopgate.com/shop_widget_images/25579/cc257d580e2d65f88db9ed490fc512ac.min.png"
+    },
+    {
+      "triggerTags": [
+        "gs24"
+      ],
+      "triggerProps": [],
+      "src": "http://data.shopgate.com/shop_widget_images/25579/13c29bdf6bc108777a5062fc774d6bdf.min.png"
+    }
+  ],
+  "badgeDisplayCount": 1,
+  "badgeWidth": "25",
+  "maxBadgeWidth": null
+}
+ ```
+
+  ![](max-width.png)
+
+ **Config**
+```json
+{
+  "badgeMap": [
+    {
+      "triggerTags": [
+        "preorder"
+      ],
+      "triggerProps": [],
+      "src": "http://data.shopgate.com/shop_widget_images/25579/cc257d580e2d65f88db9ed490fc512ac.min.png"
+    },
+    {
+      "triggerTags": [
+        "gs24"
+      ],
+      "triggerProps": [],
+      "src": "http://data.shopgate.com/shop_widget_images/25579/13c29bdf6bc108777a5062fc774d6bdf.min.png"
+    }
+  ],
+  "badgeDisplayCount": 1,
+  "badgeWidth": "25",
+  "maxBadgeWidth": "200px"
+}
+ ```

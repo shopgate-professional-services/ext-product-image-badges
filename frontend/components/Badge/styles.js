@@ -1,5 +1,5 @@
 import { css } from 'glamor';
-import { badgeWidth } from '../../config';
+import { badgeWidth, maxBadgeWidth } from '../../config';
 
 const container = css({
   display: 'flex',
@@ -13,6 +13,7 @@ const container = css({
 
 const badge = css({
   width: `${badgeWidth}%`,
+  maxWidth: `${maxBadgeWidth}`,
 }).toString();
 
 export default {

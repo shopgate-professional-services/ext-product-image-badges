@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 ## [1.2.0] - 02-07-2020
 ### Changed
 - Badge size config to width percentages in order to have compatibility with additional extensions.
+- Maximum Badge width config for large images.
 
 ## [1.1.0] - 11-25-2019
 ### Added

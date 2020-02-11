@@ -60,7 +60,17 @@
       "params": {
         "label": "Badge width percentage",
         "description": "Badge width percentage to be used for all badge location rendering",
-        "type": "json"
+        "type": "text"
+      }
+    },
+    "maxBadgeWidth": {
+      "type": "admin",
+      "default": null,
+      "destination": "frontend",
+      "params": {
+        "label": "Maximum Badge Width",
+        "description": "Maximum badge width can be set to px or %",
+        "type": "text"
       }
     }
   }
