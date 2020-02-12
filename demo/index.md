@@ -167,6 +167,6 @@
   ],
   "badgeDisplayCount": 1,
   "badgeWidth": "25",
-  "maxBadgeWidth": "200"
+  "maxBadgeWidth": "200px"
 }
  ```
