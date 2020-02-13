@@ -13,7 +13,7 @@ const container = css({
 
 const badge = css({
   width: `${badgeWidth}%`,
-  maxWidth: `${maxBadgeWidth}`,
+  maxWidth: maxBadgeWidth,
 }).toString();
 
 export default {
