@@ -1,8 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {
-  PRODUCT_GRID_LOCATION,
-} from '../../constants';
 import Badge from '../../components/Badge';
 import connect from '../connector';
 
@@ -15,7 +12,7 @@ const ProductItemImageBefore = ({ badgeInfo }) => {
     return null;
   }
 
-  return <Badge location={PRODUCT_GRID_LOCATION} badgeInfo={badgeInfo} />;
+  return <Badge badgeInfo={badgeInfo} />;
 };
 
 ProductItemImageBefore.propTypes = {

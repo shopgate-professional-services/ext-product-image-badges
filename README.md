@@ -60,34 +60,18 @@ Default Values:
   "badgeDisplayCount": 1
 ```
 
-#### gridBadgeRatio:
-This configuration is used to set height and width to configure a ratio for badges with product images in a grid view
+#### badgeWidth:
+This configuration is used to set badge width percentage to be used for all badge location rendering.
 Default Values:
 ```json
-  "gridBadgeRatio":  {
-    "width": 50,
-    "height": 70.42
-  }
+  "badgeWidth": "25"
 ```
 
-#### cardBadgeRatio:
-This configuration is used to set height and width to configure a ratio for badges with product images in a card view.
+#### badgeWidth:
+This configuration is used to set a max badge width in px so that you can control the maximum width for large images.
 Default Values:
 ```json
-  "cardBadgeRatio": {
-    "width": 40,
-    "height": 56.33
-  }
-```
-
-#### pdpBadgeRatio:
-This configuration is used to set height and width to configure a ratio for badges with product images on a PDP
-Default Values:
-```json
-  "pdpBadgeRatio": {
-    "width": 60,
-    "height": 84.5
-  }
+  "maxBadgeWidth": "200px"
 ```
 
 ## About Shopgate

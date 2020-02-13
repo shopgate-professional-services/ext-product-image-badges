@@ -12,6 +12,7 @@ import connect from '../connector';
  * @returns {JSX}
  */
 const ProductItemPriceBefore = ({ location, badgeInfo }) => {
+  // Needed so that badge is not rendered twice in product grid view
   if (!location || location === PRODUCT_GRID_LOCATION || !badgeInfo || badgeInfo.length === 0) {
     return null;
   }

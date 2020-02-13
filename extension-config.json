@@ -1,5 +1,5 @@
 {
-  "version": "1.1.0",
+  "version": "1.2.0",
   "id": "@shopgate-project/product-image-badges",
   "components": [
     {
@@ -53,43 +53,24 @@
         "type": "number"
       }
     },
-    "gridBadgeRatio": {
+    "badgeWidth": {
       "type": "admin",
-      "default": {
-        "width": 50,
-        "height": 70.42
-      },
+      "default": "25",
       "destination": "frontend",
       "params": {
-        "label": "Image ratio for badges within a grid view",
-        "description": "Set height and width to configure a ratio for badges with product images in a grid view",
-        "type": "json"
+        "label": "Badge width percentage",
+        "description": "Badge width percentage to be used for all badge location rendering",
+        "type": "text"
       }
     },
-    "cardBadgeRatio": {
+    "maxBadgeWidth": {
       "type": "admin",
-      "default": {
-        "width": 40,
-        "height": 56.33
-      },
+      "default": null,
       "destination": "frontend",
       "params": {
-        "label": "Image ratio for badges within a carde view",
-        "description": "Set height and width to configure a ratio for badges with product images in a card view",
-        "type": "json"
-      }
-    },
-    "pdpBadgeRatio": {
-      "type": "admin",
-      "default": {
-        "width": 60,
-        "height": 84.5
-      },
-      "destination": "frontend",
-      "params": {
-        "label": "Image ratio for badges within a PDP",
-        "description": "Set height and width to configure a ratio for badges with product images on a PDP",
-        "type": "json"
+        "label": "Maximum Badge Width",
+        "description": "Maximum badge width can be set to px",
+        "type": "text"
       }
     }
   }
