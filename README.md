@@ -8,7 +8,7 @@ Extension will allow a merchant to display a image badge on a product image base
 - Configuration for multiple badges per image.
 - Badge hierarchy is deterimend by the order of badges in badgeMap config. With highest priority starting at index 0.
 - Unique badge images can trigger for multiple tags or properties.
-- Configure on which places the badges should be shown are not (pdp, sliders, lists)
+- Configure on which places the badges should be shown or not (pdp, sliders, lists)
 
 ## Demo & Examples
 [See here](demo/index.md)
