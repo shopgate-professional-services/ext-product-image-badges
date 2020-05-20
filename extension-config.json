@@ -1,5 +1,5 @@
 {
-  "version": "1.2.0",
+  "version": "1.3.0",
   "id": "@shopgate-project/product-image-badges",
   "components": [
     {
@@ -71,6 +71,33 @@
         "label": "Maximum Badge Width",
         "description": "Maximum badge width can be set to px",
         "type": "text"
+      }
+    },
+    "showOnPdp": {
+      "type": "admin",
+      "default": true,
+      "destination": "frontend",
+      "params": {
+        "label": "Show badges on Pdp",
+        "type": "checkbox"
+      }
+    },
+    "showOnSliders": {
+      "type": "admin",
+      "default": true,
+      "destination": "frontend",
+      "params": {
+        "label": "Show badges on product sliders",
+        "type": "checkbox"
+      }
+    },
+    "showOnLists": {
+      "type": "admin",
+      "default": true,
+      "destination": "frontend",
+      "params": {
+        "label": "Show badges on product lists",
+        "type": "checkbox"
       }
     }
   }
