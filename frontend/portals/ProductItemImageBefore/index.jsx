@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Badge from '../../components/Badge';
+import { showOnLists } from '../../config';
 import connect from '../connector';
 
 /**
@@ -8,7 +9,7 @@ import connect from '../connector';
  * @returns {JSX}
  */
 const ProductItemImageBefore = ({ badgeInfo }) => {
-  if (!badgeInfo || badgeInfo.length === 0) {
+  if (!showOnLists || !badgeInfo || badgeInfo.length === 0) {
     return null;
   }
 

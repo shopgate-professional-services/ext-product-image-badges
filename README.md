@@ -8,6 +8,7 @@ Extension will allow a merchant to display a image badge on a product image base
 - Configuration for multiple badges per image.
 - Badge hierarchy is deterimend by the order of badges in badgeMap config. With highest priority starting at index 0.
 - Unique badge images can trigger for multiple tags or properties.
+- Configure on which places the badges should be shown or not (pdp, sliders, lists)
 
 ## Demo & Examples
 [See here](demo/index.md)
@@ -15,7 +16,7 @@ Extension will allow a merchant to display a image badge on a product image base
 ## Configuration
 There are five required configurations for this extension.
 
-#### badgeMap: 
+#### badgeMap:
 The configuration badgeMap will be used to determine which product tags or properties are used to denote the need for the associated badge to be added to the product image
 Example Value:
 ```json
@@ -72,6 +73,26 @@ This configuration is used to set a max badge width in px so that you can contro
 Default Values:
 ```json
   "maxBadgeWidth": "200px"
+```
+
+#### showOnPdp:
+If true, it shows the badges on PDP
+Default Values:
+```json
+  "showOnPdp": true
+```
+#### showOnSliders:
+If true, it shows the badges on product sliders
+Default Values:
+```json
+  "showOnSliders": true
+```
+
+#### showOnLists:
+If true, it shows the badges on products lists
+Default Values:
+```json
+  "showOnLists": true
 ```
 
 ## About Shopgate
