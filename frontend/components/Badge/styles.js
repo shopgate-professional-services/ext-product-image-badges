@@ -8,7 +8,7 @@ const container = css({
   position: 'absolute',
   right: 0,
   top: 0,
-  zIndex: 10,
+  zIndex: 2, // Same as CTA
 }).toString();
 
 const badge = css({
