@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [1.4.0] - 20-05-2021
+### Added
+- New config for styling
+
 ## [1.3.0] - 20-05-2020
 ### Added
 - New configs to hide badges for positions
