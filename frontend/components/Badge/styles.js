@@ -1,5 +1,5 @@
 import { css } from 'glamor';
-import { badgeWidth, maxBadgeWidth } from '../../config';
+import { badgeWidth, maxBadgeWidth, badgeStyling } from '../../config';
 
 const container = css({
   display: 'flex',
@@ -9,6 +9,7 @@ const container = css({
   right: 0,
   top: 0,
   zIndex: 2, // Same as CTA
+  ...badgeStyling,
 }).toString();
 
 const badge = css({

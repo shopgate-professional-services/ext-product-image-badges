@@ -95,6 +95,13 @@ Default Values:
   "showOnLists": true
 ```
 
+#### badgeStyling:
+Additional css styling for the badge (Use glamor style object).
+Default Values:
+```json
+  "badgeStyling": {}
+```
+
 ## About Shopgate
 
 Shopgate is the leading mobile commerce platform.

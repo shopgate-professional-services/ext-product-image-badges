@@ -1,5 +1,5 @@
 {
-  "version": "1.3.1",
+  "version": "1.4.0",
   "id": "@shopgate-project/product-image-badges",
   "components": [
     {
@@ -98,6 +98,16 @@
       "params": {
         "label": "Show badges on product lists",
         "type": "checkbox"
+      }
+    },
+    "badgeStyling": {
+      "type": "admin",
+      "default": {
+      },
+      "destination": "frontend",
+      "params": {
+        "label": "Css styling for the badge",
+        "type": "json"
       }
     }
   }
