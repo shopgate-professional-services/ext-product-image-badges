@@ -102,6 +102,27 @@ Default Values:
   "badgeStyling": {}
 ```
 
+#### badgeStylingPdp:
+Additional css styling for the badge on Product Detail Page (Use glamor style object).
+Default Values:
+```json
+  "badgeStylingPdp": {}
+```
+
+#### badgeStylingList:
+Additional css styling for the badge on Lists (Use glamor style object).
+Default Values:
+```json
+  "badgeStylingList": {}
+```
+
+#### badgeStylingSlider:
+Additional css styling for the badge on Sliders (Use glamor style object).
+Default Values:
+```json
+  "badgeStylingSlider": {}
+```
+
 ## About Shopgate
 
 Shopgate is the leading mobile commerce platform.

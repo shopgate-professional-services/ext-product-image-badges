@@ -13,7 +13,7 @@ const ProductItemImageBefore = ({ badgeInfo }) => {
     return null;
   }
 
-  return <Badge badgeInfo={badgeInfo} />;
+  return <Badge location="List" badgeInfo={badgeInfo} />;
 };
 
 ProductItemImageBefore.propTypes = {

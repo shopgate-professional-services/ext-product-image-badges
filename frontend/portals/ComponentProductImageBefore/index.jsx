@@ -13,9 +13,8 @@ function ComponentProductImageBefore({ badgeInfo }) {
   if (!showOnPdp || !badgeInfo || badgeInfo.length === 0) {
     return null;
   }
-
   return (
-    <Badge badgeInfo={badgeInfo} />
+    <Badge location="PDP" badgeInfo={badgeInfo} />
   );
 }
 

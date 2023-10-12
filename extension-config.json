@@ -1,5 +1,5 @@
 {
-  "version": "1.4.0",
+  "version": "1.5.0",
   "id": "@shopgate-project/product-image-badges",
   "components": [
     {
@@ -102,11 +102,37 @@
     },
     "badgeStyling": {
       "type": "admin",
-      "default": {
-      },
+      "default": {},
       "destination": "frontend",
       "params": {
         "label": "Css styling for the badge",
+        "type": "json"
+      }
+    },
+    "badgeStylingPdp": {
+      "type": "admin",
+      "default": {},
+      "destination": "frontend",
+      "params": {
+        "label": "Css styling for the badge on Product Detail Page",
+        "type": "json"
+      }
+    },
+    "badgeStylingList": {
+      "type": "admin",
+      "default": {},
+      "destination": "frontend",
+      "params": {
+        "label": "Css styling for the badge on Lists",
+        "type": "json"
+      }
+    },
+    "badgeStylingSlider": {
+      "type": "admin",
+      "default": {},
+      "destination": "frontend",
+      "params": {
+        "label": "Css styling for the badge on Sliders",
         "type": "json"
       }
     }
