@@ -14,17 +14,28 @@ export const hasTriggerTag = (tags, triggerTags) => {
 
 /**
  * @param {Array} additionalProperties product additional properties
+ * @param {Array} properties product additional properties
  * @param {Array} triggerProps config trigger props
  * @returns {boolean}
  */
-export const hasTriggerProp = (additionalProperties, triggerProps) => {
-  if (!additionalProperties) {
+export const hasTriggerProp = (additionalProperties, properties, triggerProps) => {
+  if (!additionalProperties && !properties) {
     return false;
   }
 
-  return additionalProperties.some(obj =>
-    triggerProps.some(trigger =>
-      trigger.label === obj.label && trigger.value === obj.value));
+  if (additionalProperties) {
+    return additionalProperties.some(obj =>
+      triggerProps.some(trigger =>
+        trigger.label === obj.label && trigger.value === obj.value));
+  }
+
+  if (properties) {
+    return properties.some(obj =>
+      triggerProps.some(trigger =>
+        trigger.label === obj.label && trigger.value === obj.value));
+  }
+
+  return false;
 };
 
 /**
@@ -33,9 +44,9 @@ export const hasTriggerProp = (additionalProperties, triggerProps) => {
  * @returns {boolean} should filter
  */
 export const isTriggered = (productData, badge) => {
-  const { tags, additionalProperties } = productData || {};
+  const { tags, additionalProperties, properties } = productData || {};
   const { triggerTags, triggerProps } = badge || {};
 
-  return hasTriggerTag(tags, triggerTags) || hasTriggerProp(additionalProperties, triggerProps);
+  return hasTriggerTag(tags, triggerTags) ||
+    hasTriggerProp(additionalProperties, properties, triggerProps);
 };
-

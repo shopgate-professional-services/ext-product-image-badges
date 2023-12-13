@@ -1,41 +1,18 @@
 {
-  "version": "1.4.0",
+  "version": "1.5.0",
   "id": "@shopgate-project/product-image-badges",
   "components": [
     {
-      "id": "ProductItemPriceBefore",
+      "id": "ComponentProductImage",
       "type": "portals",
-      "path": "frontend/portals/ProductItemPriceBefore",
-      "target": "product-item.price.before"
-    },
-    {
-      "id": "ComponentProductImageBefore",
-      "type": "portals",
-      "path": "frontend/portals/ComponentProductImageBefore",
-      "target": "component.product-image.before"
-    },
-    {
-      "id": "ProductItemImageBefore",
-      "type": "portals",
-      "path": "frontend/portals/ProductItemImageBefore",
-      "target": "product-item.image.before"
+      "path": "frontend/portals/ComponentProductImage",
+      "target": "component.product-image"
     }
   ],
   "configuration": {
     "badgeMap": {
       "type": "admin",
-      "default": [
-        {
-          "triggerTags": [],
-          "triggerProps": [],
-          "src": ""
-        },
-        {
-          "triggerTags": [],
-          "triggerProps": [],
-          "src": ""
-        }
-      ],
+      "default": [],
       "destination": "frontend",
       "params": {
         "label": "Mapping for tag and image srcs",
@@ -55,11 +32,11 @@
     },
     "badgeWidth": {
       "type": "admin",
-      "default": "25",
+      "default": "50",
       "destination": "frontend",
       "params": {
         "label": "Badge width percentage",
-        "description": "Badge width percentage to be used for all badge location rendering",
+        "description": "Badge width percentage to be used for badges rendering on the Pdp",
         "type": "text"
       }
     },
@@ -69,7 +46,47 @@
       "destination": "frontend",
       "params": {
         "label": "Maximum Badge Width",
-        "description": "Maximum badge width can be set to px",
+        "description": "Maximum badge width can be set to px (Pdp)",
+        "type": "text"
+      }
+    },
+    "badgeWidthSliders": {
+      "type": "admin",
+      "default": "30",
+      "destination": "frontend",
+      "params": {
+        "label": "Badge width percentage",
+        "description": "Badge width percentage to be used for badges rendering on sliders",
+        "type": "text"
+      }
+    },
+    "maxBadgeWidthSliders": {
+      "type": "admin",
+      "default": null,
+      "destination": "frontend",
+      "params": {
+        "label": "Maximum Badge Width",
+        "description": "Maximum badge width can be set to px (sliders)",
+        "type": "text"
+      }
+    },
+    "badgeWidthLists": {
+      "type": "admin",
+      "default": "30",
+      "destination": "frontend",
+      "params": {
+        "label": "Badge width percentage",
+        "description": "Badge width percentage to be used for badges rendering on products lists",
+        "type": "text"
+      }
+    },
+    "maxBadgeWidthLists": {
+      "type": "admin",
+      "default": null,
+      "destination": "frontend",
+      "params": {
+        "label": "Maximum Badge Width",
+        "description": "Maximum badge width can be set to px (product lists)",
         "type": "text"
       }
     },
@@ -100,10 +117,54 @@
         "type": "checkbox"
       }
     },
-    "badgeStyling": {
+    "badgePositionPdp": {
       "type": "admin",
-      "default": {
-      },
+      "default": "bottomLeft",
+      "destination": "frontend",
+      "params": {
+        "label": "Css styling for the badge",
+        "type": "text"
+      }
+    },
+    "badgePositionSliders": {
+      "type": "admin",
+      "default": "bottomLeft",
+      "destination": "frontend",
+      "params": {
+        "label": "Css styling for the badge",
+        "type": "text"
+      }
+    },
+    "badgePositionLists": {
+      "type": "admin",
+      "default": "bottomLeft",
+      "destination": "frontend",
+      "params": {
+        "label": "Css styling for the badge",
+        "type": "text"
+      }
+    },
+    "badgeStylingPdp": {
+      "type": "admin",
+      "default": {},
+      "destination": "frontend",
+      "params": {
+        "label": "Css styling for the badge",
+        "type": "json"
+      }
+    },
+    "badgeStylingSliders": {
+      "type": "admin",
+      "default": {},
+      "destination": "frontend",
+      "params": {
+        "label": "Css styling for the badge",
+        "type": "json"
+      }
+    },
+    "badgeStylingLists": {
+      "type": "admin",
+      "default": {},
       "destination": "frontend",
       "params": {
         "label": "Css styling for the badge",
