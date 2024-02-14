@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [1.5.0] - 14-02-2024
+### Changed
+- Reworked logic to show image badges on PDP, Grid and Sliders
+
+### Added
+- Compatibility with PWA 7
+
 ## [1.4.0] - 20-05-2021
 ### Added
 - New config for styling

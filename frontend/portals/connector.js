@@ -7,7 +7,7 @@ import { getBadgeInfo } from '../selectors';
  * @returns {Object}
  */
 const mapStateToProps = (state, props) => ({
-  badgeInfo: getBadgeInfo(state, props),
+  badgeInfo: getBadgeInfo(state, props?.productListEntry),
 });
 
 export default connect(mapStateToProps);

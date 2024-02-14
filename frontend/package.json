@@ -1,6 +1,5 @@
 {
   "name": "@shopgate-project/product-image-badges",
-  "version": "1.4.0",
   "description": "Extension will allow a user to display a image badge on a product image based on tag or property.",
   "license": "UNLICENSED",
   "scripts": {
