@@ -61,20 +61,6 @@ Default Values:
   "badgeDisplayCount": 1
 ```
 
-#### badgeWidth:
-This configuration is used to set badge width percentage to be used for all badge location rendering.
-Default Values:
-```json
-  "badgeWidth": "25"
-```
-
-#### badgeWidth:
-This configuration is used to set a max badge width in px so that you can control the maximum width for large images.
-Default Values:
-```json
-  "maxBadgeWidth": "200px"
-```
-
 #### showOnPdp:
 If true, it shows the badges on PDP
 Default Values:

@@ -3,15 +3,12 @@ import PropTypes from 'prop-types';
 import { useProductListEntry } from '@shopgate/engage/product';
 import { css } from 'glamor';
 import {
-  badgeWidth,
-  maxBadgeWidth,
-  badgeWidthSliders,
-  maxBadgeWidthSliders,
-  badgeWidthLists,
-  maxBadgeWidthLists,
   showOnLists,
   showOnPdp,
   showOnSliders,
+  badgeContainerStylingPdp,
+  badgeContainerStylingSliders,
+  badgeContainerStylingLists,
   badgeStylingPdp,
   badgeStylingSliders,
   badgeStylingLists,
@@ -27,19 +24,18 @@ const getStyles = (productListType, productListSubType) => ({
     display: 'flex',
     position: 'absolute',
     flexDirection: 'column-reverse',
-    width: '100%',
+    alignItems: 'start',
     top: 5,
     left: 5,
     zIndex: 1000,
-    ...badgeStylingPdp,
+    ...badgeContainerStylingPdp,
   }).toString(),
   containerTopRight: css({
     display: 'flex',
     position: 'absolute',
     alignItems: 'end',
     flexDirection: 'column-reverse',
-    width: '100%',
-    top: 5,
+    top: 40,
     right: 5,
     zIndex: 1000,
     ...badgeStylingPdp,
@@ -47,113 +43,105 @@ const getStyles = (productListType, productListSubType) => ({
   containerBottomLeft: css({
     display: 'flex',
     flexDirection: 'column-reverse',
+    alignItems: 'start',
     position: 'absolute',
-    width: '100%',
     bottom: 10,
     left: 5,
-    ...badgeStylingPdp,
+    ...badgeContainerStylingPdp,
   }).toString(),
   containerBottomRight: css({
     display: 'flex',
     flexDirection: 'column-reverse',
     position: 'absolute',
     alignItems: 'end',
-    width: '100%',
     bottom: 10,
     right: 5,
-    ...badgeStylingPdp,
+    ...badgeContainerStylingPdp,
   }).toString(),
   containerSliders: css({
     display: 'flex',
     position: 'absolute',
     flexDirection: 'column-reverse',
-    width: '100%',
+    alignItems: 'start',
     top: 5,
     left: 5,
     zIndex: 1000,
-    ...badgeStylingSliders,
+    ...badgeContainerStylingSliders,
   }).toString(),
   containerSlidersTopRight: css({
     display: 'flex',
     position: 'absolute',
     alignItems: 'end',
     flexDirection: 'column-reverse',
-    width: '100%',
     top: 5,
     right: 5,
     zIndex: 1000,
-    ...badgeStylingSliders,
+    ...badgeContainerStylingSliders,
   }).toString(),
   containerSlidersBottomLeft: css({
     display: 'flex',
     flexDirection: 'column-reverse',
+    alignItems: 'start',
     position: 'absolute',
-    width: '100%',
-    bottom: productListType === 'productSlider' && productListSubType === 'widgets' ? 100 : 120,
+    bottom: productListType === 'productSlider' && (productListSubType === 'widgets' || productListSubType === 'upselling') ? 100 : 120,
     left: 5,
-    ...badgeStylingSliders,
+    ...badgeContainerStylingSliders,
   }).toString(),
   containerSlidersBottomRight: css({
     display: 'flex',
     flexDirection: 'column-reverse',
     position: 'absolute',
     alignItems: 'end',
-    width: '100%',
-    bottom: productListType === 'productSlider' && productListSubType === 'widgets' ? 100 : 120,
+    bottom: productListType === 'productSlider' && (productListSubType === 'widgets' || productListSubType === 'upselling') ? 100 : 120,
     right: 5,
-    ...badgeStylingSliders,
+    ...badgeContainerStylingSliders,
   }).toString(),
   containerLists: css({
     display: 'flex',
     position: 'absolute',
     flexDirection: 'column-reverse',
-    width: '100%',
+    alignItems: 'start',
     top: 5,
     left: 5,
     zIndex: 1000,
-    ...badgeStylingLists,
+    ...badgeContainerStylingLists,
   }).toString(),
   containerListsTopRight: css({
     display: 'flex',
     position: 'absolute',
     alignItems: 'end',
     flexDirection: 'column-reverse',
-    width: '100%',
     top: 5,
     right: 5,
     zIndex: 1000,
-    ...badgeStylingLists,
+    ...badgeContainerStylingLists,
   }).toString(),
   containerListsBottomLeft: css({
     display: 'flex',
     flexDirection: 'column-reverse',
+    alignItems: 'start',
     position: 'absolute',
-    width: '100%',
     bottom: 120,
     left: 5,
-    ...badgeStylingLists,
+    ...badgeContainerStylingLists,
   }).toString(),
   containerListsBottomRight: css({
     display: 'flex',
     flexDirection: 'column-reverse',
     position: 'absolute',
     alignItems: 'end',
-    width: '100%',
     bottom: 120,
     right: 5,
-    ...badgeStylingLists,
+    ...badgeContainerStylingLists,
   }).toString(),
   badge: css({
-    width: badgeWidth,
-    maxWidth: maxBadgeWidth,
+    ...badgeStylingPdp,
   }).toString(),
   badgeSliders: css({
-    width: badgeWidthSliders,
-    maxWidth: maxBadgeWidthSliders,
+    ...badgeStylingSliders,
   }).toString(),
   badgeLists: css({
-    width: badgeWidthLists,
-    maxWidth: maxBadgeWidthLists,
+    ...badgeStylingLists,
   }).toString(),
 });
 
@@ -163,6 +151,9 @@ const getStyles = (productListType, productListSubType) => ({
  */
 const CardBadge = ({ badgeInfo, badgePosition }) => {
   const { productListType, productListSubType } = useProductListEntry();
+
+  console.log('---productListType----', productListType);
+  console.log('---productListSubType----', productListSubType);
 
   if (!badgeInfo || badgeInfo.length === 0) {
     return null;
@@ -223,6 +214,8 @@ const CardBadge = ({ badgeInfo, badgePosition }) => {
     if (productListType === 'productSlider' && showOnSliders) {
       return <div className={`image-badges ${styles.containerSlidersBottomLeft}`}>{images}</div>;
     }
+
+    return <div className={`image-badges ${styles.containerSlidersBottomLeft}`}>{images}</div>;
   }
 
   // badgePostition is bottomRight

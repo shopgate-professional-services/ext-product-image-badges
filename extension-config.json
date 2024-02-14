@@ -30,66 +30,6 @@
         "type": "number"
       }
     },
-    "badgeWidth": {
-      "type": "admin",
-      "default": "50",
-      "destination": "frontend",
-      "params": {
-        "label": "Badge width percentage",
-        "description": "Badge width percentage to be used for badges rendering on the Pdp",
-        "type": "text"
-      }
-    },
-    "maxBadgeWidth": {
-      "type": "admin",
-      "default": null,
-      "destination": "frontend",
-      "params": {
-        "label": "Maximum Badge Width",
-        "description": "Maximum badge width can be set to px (Pdp)",
-        "type": "text"
-      }
-    },
-    "badgeWidthSliders": {
-      "type": "admin",
-      "default": "30",
-      "destination": "frontend",
-      "params": {
-        "label": "Badge width percentage",
-        "description": "Badge width percentage to be used for badges rendering on sliders",
-        "type": "text"
-      }
-    },
-    "maxBadgeWidthSliders": {
-      "type": "admin",
-      "default": null,
-      "destination": "frontend",
-      "params": {
-        "label": "Maximum Badge Width",
-        "description": "Maximum badge width can be set to px (sliders)",
-        "type": "text"
-      }
-    },
-    "badgeWidthLists": {
-      "type": "admin",
-      "default": "30",
-      "destination": "frontend",
-      "params": {
-        "label": "Badge width percentage",
-        "description": "Badge width percentage to be used for badges rendering on products lists",
-        "type": "text"
-      }
-    },
-    "maxBadgeWidthLists": {
-      "type": "admin",
-      "default": null,
-      "destination": "frontend",
-      "params": {
-        "label": "Maximum Badge Width",
-        "description": "Maximum badge width can be set to px (product lists)",
-        "type": "text"
-      }
-    },
     "showOnPdp": {
       "type": "admin",
       "default": true,
@@ -119,7 +59,7 @@
     },
     "badgePositionPdp": {
       "type": "admin",
-      "default": "bottomLeft",
+      "default": "topLeft",
       "destination": "frontend",
       "params": {
         "label": "Css styling for the badge",
@@ -128,7 +68,7 @@
     },
     "badgePositionSliders": {
       "type": "admin",
-      "default": "bottomLeft",
+      "default": "topLeft",
       "destination": "frontend",
       "params": {
         "label": "Css styling for the badge",
@@ -137,16 +77,45 @@
     },
     "badgePositionLists": {
       "type": "admin",
-      "default": "bottomLeft",
+      "default": "topLeft",
       "destination": "frontend",
       "params": {
         "label": "Css styling for the badge",
         "type": "text"
       }
     },
-    "badgeStylingPdp": {
+    "badgeContainerStylingPdp": {
       "type": "admin",
       "default": {},
+      "destination": "frontend",
+      "params": {
+        "label": "Css styling for the badge container",
+        "type": "json"
+      }
+    },
+    "badgeContainerStylingSliders": {
+      "type": "admin",
+      "default": {},
+      "destination": "frontend",
+      "params": {
+        "label": "Css styling for the badge container",
+        "type": "json"
+      }
+    },
+    "badgeContainerStylingLists": {
+      "type": "admin",
+      "default": {},
+      "destination": "frontend",
+      "params": {
+        "label": "Css styling for the badge container",
+        "type": "json"
+      }
+    },
+    "badgeStylingPdp": {
+      "type": "admin",
+      "default": {
+        "height": 35
+      },
       "destination": "frontend",
       "params": {
         "label": "Css styling for the badge",
@@ -155,7 +124,9 @@
     },
     "badgeStylingSliders": {
       "type": "admin",
-      "default": {},
+      "default": {
+        "height": 20
+      },
       "destination": "frontend",
       "params": {
         "label": "Css styling for the badge",
@@ -164,7 +135,9 @@
     },
     "badgeStylingLists": {
       "type": "admin",
-      "default": {},
+      "default": {
+        "height": 20
+      },
       "destination": "frontend",
       "params": {
         "label": "Css styling for the badge",
