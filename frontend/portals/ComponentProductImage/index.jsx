@@ -1,10 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withProductListEntry, useProductListEntry } from '@shopgate/engage/product';
+import { css } from 'glamor';
 import Badge from '../../components/Badge';
 import { badgePositionPdp, badgePositionSliders, badgePositionLists } from '../../config';
 
 import connect from '../connector';
+
+const styles = {
+  root: css({
+    position: 'relative',
+  }),
+};
 
 /**
  * @param {Object} badgeInfo badge images to display
@@ -31,19 +38,10 @@ const ComponentProductImage = ({ children, badgeInfo }) => {
     badgePosition = badgePositionLists;
   }
 
-  if (badgePosition === 'bottomLeft' || badgePosition === 'bottomRight') {
-    return (
-      <div>
-        {children}
-        <Badge badgePosition={badgePosition} badgeInfo={badgeInfo} />
-      </div>
-    );
-  }
-
   return (
-    <div>
-      <Badge badgePosition={badgePosition} badgeInfo={badgeInfo} />
+    <div className={styles.root}>
       {children}
+      <Badge badgePosition={badgePosition} badgeInfo={badgeInfo} />
     </div>
   );
 };
