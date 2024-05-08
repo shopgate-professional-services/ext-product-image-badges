@@ -10,11 +10,7 @@ Extension will allow a merchant to display a image badge on a product image base
 - Unique badge images can trigger for multiple tags or properties.
 - Configure on which places the badges should be shown or not (pdp, sliders, lists)
 
-## Demo & Examples
-[See here](demo/index.md)
-
 ## Configuration
-There are five required configurations for this extension.
 
 #### badgeMap:
 The configuration badgeMap will be used to determine which product tags or properties are used to denote the need for the associated badge to be added to the product image
@@ -81,11 +77,73 @@ Default Values:
   "showOnLists": true
 ```
 
-#### badgeStyling:
-Additional css styling for the badge (Use glamor style object).
+#### badgePositionPdp
+This configuration is used to define where the badge is positioned on the product image on the product detail page. Possible positions are: topLeft, topRight, bottomLeft and bottomRight.
 Default Values:
 ```json
-  "badgeStyling": {}
+  "badgePositionPdp": "topLeft"
+```
+
+#### badgePositionSliders
+This configuration is used to define where the badge is positioned on product sliders. Possible positions are: topLeft, topRight, bottomLeft and bottomRight.
+Default Values:
+```json
+  "badgePositionSliders": "topLeft"
+```
+
+#### badgePositionLists
+This configuration is used to define where the badge is positioned on product lists. Possible positions are: topLeft, topRight, bottomLeft and bottomRight.
+Default Values:
+```json
+  "badgePositionLists": "topLeft"
+```
+
+#### badgeContainerStylingPdp:
+Additional css styling for the badge container on the product detail page (Use glamor style object).
+Default Values:
+```json
+  "badgeContainerStylingPdp": {}
+```
+
+#### badgeContainerStylingSliders:
+Additional css styling for the badge container on product sliders (Use glamor style object).
+Default Values:
+```json
+  "badgeContainerStylingSliders": {}
+```
+
+#### badgeContainerStylingLists:
+Additional css styling for the badge container on product lists (Use glamor style object).
+Default Values:
+```json
+  "badgeContainerStylingPdp": {
+    "height": 35
+  }
+```
+
+#### badgeStylingPdp:
+Additional css styling for the badges on the product detail page (Use glamor style object).
+Default Values:
+```json
+  "badgeStylingPdp": {
+    "height": 20
+  }
+```
+
+#### badgeStylingSliders:
+Additional css styling for the badges on product sliders (Use glamor style object).
+Default Values:
+```json
+  "badgeStylingSliders": {
+    "height": 20
+  }
+```
+
+#### badgeStylingLists:
+Additional css styling for the badges on product lists (Use glamor style object).
+Default Values:
+```json
+  "badgeStylingLists": {}
 ```
 
 ## About Shopgate
