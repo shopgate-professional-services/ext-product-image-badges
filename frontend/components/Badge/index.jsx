@@ -72,8 +72,6 @@ const CardBadge = ({ badgeInfo, badgePosition }) => {
       return [];
     }
 
-    console.log('------badgeInfo----', badgeInfo);
-
     if (productListType === 'productSlider') {
       return badgeInfo.map((image, index) => (
         <img className={styles.badgeSliders} src={image} alt="" key={index.toString()} />
