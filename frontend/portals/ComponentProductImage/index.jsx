@@ -14,8 +14,9 @@ const styles = {
 };
 
 /**
- * @param {Object} badgeInfo badge images to display
- * @returns {JSX}
+ * @param {Array} badgeInfo Array of badge image urls
+ * @param {React.ReactNode} children .
+ * @returns {JSX.Element}
  */
 const ComponentProductImage = ({ children, badgeInfo }) => {
   const { productListType, productListSubType } = useProductListEntry();

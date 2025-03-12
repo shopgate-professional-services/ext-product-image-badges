@@ -61,8 +61,10 @@ const styles = {
 };
 
 /**
- * @param {Array} badgeInfo Array of badge image urls
- * @returns {JSX}
+ * @param {Object} props component props
+ * @param {Array} props.badgeInfo Array of badge image urls
+ * @param {string} props.badgePosition string to declare the badge position
+ * @returns {JSX.Element}
  */
 const CardBadge = ({ badgeInfo, badgePosition }) => {
   const { productListType, productListSubType } = useProductListEntry();
@@ -73,18 +75,18 @@ const CardBadge = ({ badgeInfo, badgePosition }) => {
     }
 
     if (productListType === 'productSlider') {
-      return badgeInfo.map((image, index) => (
-        <img className={styles.badgeSliders} src={image} alt="" key={index.toString()} />
+      return badgeInfo.map(({ src, altText }, index) => (
+        <img className={styles.badgeSliders} src={src} alt={altText} key={index.toString()} />
       ));
     }
 
     if (productListType === 'productGrid') {
-      return badgeInfo.map((image, index) => (
-        <img className={styles.badgeLists} src={image} alt="" key={index.toString()} />
+      return badgeInfo.map(({ src, altText }, index) => (
+        <img className={styles.badgeLists} src={src} alt={altText} key={index.toString()} />
       ));
     }
-    return badgeInfo.map((image, index) => (
-      <img className={styles.badge} src={image} alt="" key={index.toString()} />
+    return badgeInfo.map(({ src, altText }, index) => (
+      <img className={styles.badge} src={src} alt={altText} key={index.toString()} />
     ));
   }, [badgeInfo, productListType]);
 

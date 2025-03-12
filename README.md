@@ -1,6 +1,6 @@
 # Shopgate Connect - Extension Product Image Badges
 
-Extension will allow a merchant to display a image badge on a product image based on a tag or property. If you wish to use a property then you must use extension [products-add-properties](https://github.com/shopgate/ext-products-add-properties) in order to have the property exposed in the same location as tags.
+Extension will allow a merchant to display an image badge on a product image based on a tag or property. If you wish to use a property then you must use extension [products-add-properties](https://github.com/shopgate/ext-products-add-properties) in order to have the property exposed in the same location as tags.
 
 ## Features
 - Can trigger badges with tags or properties. Must use [products-add-properties](https://github.com/shopgate/ext-products-add-properties) for trigger properties.
@@ -30,7 +30,8 @@ Example Value:
           "value": false
         }
       ],
-      "src": "exampleImage1.com"
+      "src": "exampleImage1.com",
+      "altText": "a meaningful description of the image for accessibility"
     },
     {
       "triggerTags": ["exampleTag-1", "exampleTag-2"],
@@ -44,7 +45,8 @@ Example Value:
           "value": "no"
         }
       ],
-      "src": "exampleImage2.com"
+      "src": "exampleImage2.com",
+      "altText": "a meaningful description of the image for accessibility"
     }
   ]
 }
@@ -54,96 +56,122 @@ Example Value:
 This configuration is used to determine how many badges to display per product images. The badge hierarchy is determined by badgeMap array order.
 Default Values:
 ```json
+ {
   "badgeDisplayCount": 1
+}
 ```
 
 #### showOnPdp:
 If true, it shows the badges on PDP
 Default Values:
 ```json
+ {
   "showOnPdp": true
+}
 ```
 #### showOnSliders:
 If true, it shows the badges on product sliders
 Default Values:
 ```json
+  {
   "showOnSliders": true
+}
 ```
 
 #### showOnLists:
 If true, it shows the badges on products lists
 Default Values:
 ```json
+  {
   "showOnLists": true
+}
 ```
 
 #### badgePositionPdp
 This configuration is used to define where the badge is positioned on the product image on the product detail page. Possible positions are: topLeft, topRight, bottomLeft and bottomRight.
 Default Values:
 ```json
+ {
   "badgePositionPdp": "topLeft"
+}
 ```
 
 #### badgePositionSliders
 This configuration is used to define where the badge is positioned on product sliders. Possible positions are: topLeft, topRight, bottomLeft and bottomRight.
 Default Values:
 ```json
+  {
   "badgePositionSliders": "topLeft"
+}
 ```
 
 #### badgePositionLists
 This configuration is used to define where the badge is positioned on product lists. Possible positions are: topLeft, topRight, bottomLeft and bottomRight.
 Default Values:
 ```json
+ {
   "badgePositionLists": "topLeft"
+}
 ```
 
 #### badgeContainerStylingPdp:
 Additional css styling for the badge container on the product detail page (Use glamor style object).
 Default Values:
 ```json
+  {
   "badgeContainerStylingPdp": {}
+}
 ```
 
 #### badgeContainerStylingSliders:
 Additional css styling for the badge container on product sliders (Use glamor style object).
 Default Values:
 ```json
+ {
   "badgeContainerStylingSliders": {}
+}
 ```
 
 #### badgeContainerStylingLists:
 Additional css styling for the badge container on product lists (Use glamor style object).
 Default Values:
 ```json
+ {
   "badgeContainerStylingPdp": {
     "height": 35
   }
+}
 ```
 
 #### badgeStylingPdp:
 Additional css styling for the badges on the product detail page (Use glamor style object).
 Default Values:
 ```json
+  {
   "badgeStylingPdp": {
     "height": 20
   }
+}
 ```
 
 #### badgeStylingSliders:
 Additional css styling for the badges on product sliders (Use glamor style object).
 Default Values:
 ```json
+ {
   "badgeStylingSliders": {
     "height": 20
   }
+}
 ```
 
 #### badgeStylingLists:
 Additional css styling for the badges on product lists (Use glamor style object).
 Default Values:
 ```json
+  {
   "badgeStylingLists": {}
+}
 ```
 
 ## About Shopgate
