@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [1.6.0] - 12-03-2025
+### Added
+- Improved accessibility for screen readers
+
 ## [1.5.0] - 08-05-2024
 ### Changed
 - Reworked logic to show image badges on PDP, Grid and Sliders
@@ -33,6 +37,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 - Initial extension release.
 
 
+[1.6.0]: https://github.com/shopgate-professional-services/ext-product-image-badges/compare/v1.5.0...v1.6.0
 [1.3.0]: https://github.com/shopgate-professional-services/ext-product-image-badges/compare/v1.2.0...v1.3.0
 [1.2.0]: https://github.com/shopgate-professional-services/ext-product-image-badges/compare/v1.1.0...v1.2.0
 [1.1.0]: https://github.com/shopgate-professional-services/ext-product-image-badges/compare/v1.0.0...v1.1.0
