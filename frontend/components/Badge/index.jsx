@@ -76,17 +76,35 @@ const CardBadge = ({ badgeInfo, badgePosition }) => {
 
     if (productListType === 'productSlider') {
       return badgeInfo.map(({ src, altText }, index) => (
-        <img className={styles.badgeSliders} src={src} alt={altText} key={index.toString()} />
+        <img
+          className={styles.badgeSliders}
+          src={src}
+          alt={altText}
+          aria-hidden={!altText}
+          key={index.toString()}
+        />
       ));
     }
 
     if (productListType === 'productGrid') {
       return badgeInfo.map(({ src, altText }, index) => (
-        <img className={styles.badgeLists} src={src} alt={altText} key={index.toString()} />
+        <img
+          className={styles.badgeLists}
+          src={src}
+          alt={altText}
+          aria-hidden={!altText}
+          key={index.toString()}
+        />
       ));
     }
     return badgeInfo.map(({ src, altText }, index) => (
-      <img className={styles.badge} src={src} alt={altText} key={index.toString()} />
+      <img
+        className={styles.badge}
+        src={src}
+        alt={altText}
+        aria-hidden={!altText}
+        key={index.toString()}
+      />
     ));
   }, [badgeInfo, productListType]);
 
