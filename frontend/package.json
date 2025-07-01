@@ -1,21 +1,13 @@
 {
   "name": "@shopgate-project/product-image-badges",
-  "description": "Extension will allow a user to display a image badge on a product image based on tag or property.",
+  "description": "Extension will allow a user to display an image badge on a product image based on tag or property.",
   "license": "UNLICENSED",
-  "scripts": {
-    "test": "jest",
-    "test:watch": "npm run test -- --watch",
-    "coverage": "jest --coverage",
-    "coverage:watch": "npm run coverage -- --watch"
-  },
   "devDependencies": {
     "@shopgate/engage": "^6.10.0",
     "@shopgate/eslint-config": "^6.10.0",
     "@shopgate/pwa-common": "^6.10.0",
     "@shopgate/pwa-common-commerce": "^6.10.0",
     "@shopgate/pwa-core": "^6.10.0",
-    "jest": "^22.4.2",
-    "@shopgate/pwa-unit-test": "^6.10.0",
     "@shopgate/pwa-ui-ios": "^6.10.0",
     "@shopgate/pwa-ui-shared": "^6.10.0",
     "babel-core": "^6.26.0",

@@ -75,37 +75,65 @@ const CardBadge = ({ badgeInfo, badgePosition }) => {
     }
 
     if (productListType === 'productSlider') {
-      return badgeInfo.map(({ src, altText }, index) => (
-        <img
-          className={styles.badgeSliders}
-          src={src}
-          alt={altText}
-          aria-hidden={!altText}
-          key={index.toString()}
-        />
-      ));
+      return badgeInfo.map(({
+        src, altText, text, style,
+      }, index) => {
+        if (text) {
+          return (
+            <div style={style} className="product-badge__text" key={index.toString()}>{text}</div>
+          );
+        }
+        return (
+          <img
+            className={styles.badgeSliders}
+            src={src}
+            alt={altText}
+            aria-hidden={!altText}
+            key={index.toString()}
+          />
+        );
+      });
     }
 
     if (productListType === 'productGrid') {
-      return badgeInfo.map(({ src, altText }, index) => (
+      return badgeInfo.map(({
+        src, altText, text, style,
+      }, index) => {
+        if (text) {
+          return (
+            <div style={style} className="product-badge__text" key={index.toString()}>{text}</div>
+          );
+        }
+        return (
+          <img
+            className={styles.badgeLists}
+            src={src}
+            alt={altText}
+            aria-hidden={!altText}
+            key={index.toString()}
+          />
+        );
+      });
+    }
+
+    return badgeInfo.map(({
+      src, altText, text, style,
+    }, index) => {
+      if (text) {
+        return (
+          <div style={style} className="product-badge__text" key={index.toString()}>{text}</div>
+        );
+      }
+      return (
         <img
-          className={styles.badgeLists}
+          className={styles.badge}
           src={src}
           alt={altText}
           aria-hidden={!altText}
           key={index.toString()}
         />
-      ));
-    }
-    return badgeInfo.map(({ src, altText }, index) => (
-      <img
-        className={styles.badge}
-        src={src}
-        alt={altText}
-        aria-hidden={!altText}
-        key={index.toString()}
-      />
-    ));
+      );
+    });
   }, [badgeInfo, productListType]);
 
   const containerClasses = useMemo(() => {
@@ -150,7 +178,7 @@ const CardBadge = ({ badgeInfo, badgePosition }) => {
 };
 
 CardBadge.propTypes = {
-  badgeInfo: PropTypes.arrayOf(PropTypes.string).isRequired,
+  badgeInfo: PropTypes.arrayOf(PropTypes.object).isRequired,
   badgePosition: PropTypes.string.isRequired,
 };
 
