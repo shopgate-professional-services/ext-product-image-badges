@@ -62,6 +62,20 @@ Example Value:
       ],
       "src": "exampleImage2.com",
       "altText": "a meaningful description of the image for accessibility"
+    },
+    {
+      "text": "NEU!!",
+      "style": {
+        "borderRadius": "25px",
+        "backgroundColor": "red"
+      },
+      "triggerTags": [],
+      "triggerProps": [
+        {
+          "label": "exampleTriggerProp-2",
+          "value": "yes"
+        }
+      ]
     }
   ]
 }

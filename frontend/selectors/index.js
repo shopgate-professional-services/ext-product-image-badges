@@ -11,9 +11,13 @@ export const getBadgeInfo = createSelector(
     }
 
     const badgeInfo = badgeMap.filter(badge => isTriggered(productData, badge))
-      .map(({ src, altText }) => ({
+      .map(({
+        src, altText, text, style,
+      }) => ({
         src,
         altText,
+        text,
+        style,
       }));
 
     if (!badgeInfo) {
