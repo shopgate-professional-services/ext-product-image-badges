@@ -1,7 +1,7 @@
-import React, { useMemo } from 'react';
+import { useMemo } from 'react';
 import PropTypes from 'prop-types';
 import { useProductListEntry } from '@shopgate/engage/product';
-import { css } from 'glamor';
+import { makeStyles } from '@shopgate/engage/styles';
 import {
   showOnLists,
   showOnPdp,
@@ -14,51 +14,51 @@ import {
   badgeStylingLists,
 } from '../../config';
 
-const styles = {
-  baseContainer: css({
+const useStyles = makeStyles()(() => ({
+  baseContainer: {
     display: 'flex',
     position: 'absolute',
     flexDirection: 'column-reverse',
-  }),
-  topLeftContainer: css({
+  },
+  topLeftContainer: {
     alignItems: 'start',
     top: 5,
     left: 5,
-  }),
-  topRightContainer: css({
+  },
+  topRightContainer: {
     alignItems: 'end',
     top: 5,
     right: 5,
-  }),
-  bottomLeftContainer: css({
+  },
+  bottomLeftContainer: {
     alignItems: 'start',
     bottom: 10,
     left: 5,
-  }),
-  bottomRightContainer: css({
+  },
+  bottomRightContainer: {
     alignItems: 'end',
     bottom: 10,
     right: 5,
-  }),
-  pdpCustomContainer: css({
+  },
+  pdpCustomContainer: {
     ...badgeContainerStylingPdp,
-  }),
-  productGridCustomContainer: css({
+  },
+  productGridCustomContainer: {
     ...badgeContainerStylingLists,
-  }),
-  slidersCustomContainer: css({
+  },
+  slidersCustomContainer: {
     ...badgeContainerStylingSliders,
-  }),
-  badge: css({
+  },
+  badge: {
     ...badgeStylingPdp,
-  }),
-  badgeSliders: css({
+  },
+  badgeSliders: {
     ...badgeStylingSliders,
-  }),
-  badgeLists: css({
+  },
+  badgeLists: {
     ...badgeStylingLists,
-  }),
-};
+  },
+}));
 
 /**
  * @param {Object} props component props
@@ -67,53 +67,24 @@ const styles = {
  * @returns {JSX.Element}
  */
 const CardBadge = ({ badgeInfo, badgePosition }) => {
+  const { classes } = useStyles();
   const { productListType, productListSubType } = useProductListEntry();
+
+  const badgeClass = useMemo(() => {
+    if (productListType === 'productSlider') {
+      return classes.badgeSliders;
+    }
+
+    if (productListType === 'productGrid') {
+      return classes.badgeLists;
+    }
+
+    return classes.badge;
+  }, [classes, productListType]);
 
   const images = useMemo(() => {
     if (!Array.isArray(badgeInfo) || badgeInfo.length === 0) {
       return [];
-    }
-
-    if (productListType === 'productSlider') {
-      return badgeInfo.map(({
-        src, altText, text, style,
-      }, index) => {
-        if (text) {
-          return (
-            <div style={style} className="product-badge__text" key={index.toString()}>{text}</div>
-          );
-        }
-        return (
-          <img
-            className={styles.badgeSliders}
-            src={src}
-            alt={altText}
-            aria-hidden={!altText}
-            key={index.toString()}
-          />
-        );
-      });
-    }
-
-    if (productListType === 'productGrid') {
-      return badgeInfo.map(({
-        src, altText, text, style,
-      }, index) => {
-        if (text) {
-          return (
-            <div style={style} className="product-badge__text" key={index.toString()}>{text}</div>
-          );
-        }
-        return (
-          <img
-            className={styles.badgeLists}
-            src={src}
-            alt={altText}
-            aria-hidden={!altText}
-            key={index.toString()}
-          />
-        );
-      });
     }
 
     return badgeInfo.map(({
@@ -124,9 +95,10 @@ const CardBadge = ({ badgeInfo, badgePosition }) => {
           <div style={style} className="product-badge__text" key={index.toString()}>{text}</div>
         );
       }
+
       return (
         <img
-          className={styles.badge}
+          className={badgeClass}
           src={src}
           alt={altText}
           aria-hidden={!altText}
@@ -134,7 +106,7 @@ const CardBadge = ({ badgeInfo, badgePosition }) => {
         />
       );
     });
-  }, [badgeInfo, productListType]);
+  }, [badgeInfo, badgeClass]);
 
   const containerClasses = useMemo(() => {
     let customClass;
@@ -160,11 +132,11 @@ const CardBadge = ({ badgeInfo, badgePosition }) => {
 
     return [
       'image-badges',
-      styles.baseContainer,
-      styles[`${badgePosition}Container`],
-      styles[customClass],
+      classes.baseContainer,
+      classes[`${badgePosition}Container`],
+      classes[customClass],
     ].join(' ');
-  }, [badgePosition, productListSubType, productListType]);
+  }, [badgePosition, productListSubType, productListType, classes]);
 
   if (!containerClasses || images.length === 0) {
     return null;
