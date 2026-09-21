@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
 import { useProductListEntry } from '@shopgate/engage/product';
 import { makeStyles } from '@shopgate/engage/styles';
