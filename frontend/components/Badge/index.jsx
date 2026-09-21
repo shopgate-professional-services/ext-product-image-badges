@@ -2,7 +2,9 @@ import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
 import { useProductListEntry } from '@shopgate/engage/product';
 import { makeStyles } from '@shopgate/engage/styles';
-import {
+import config from '../../config.json';
+
+const {
   showOnLists,
   showOnPdp,
   showOnSliders,
@@ -12,7 +14,7 @@ import {
   badgeStylingPdp,
   badgeStylingSliders,
   badgeStylingLists,
-} from '../../config';
+} = config;
 
 const useStyles = makeStyles()(() => ({
   baseContainer: {
@@ -88,11 +90,11 @@ const CardBadge = ({ badgeInfo, badgePosition }) => {
     }
 
     return badgeInfo.map(({
-      src, altText, text, style,
-    }, index) => {
+      id, src, altText, text, style,
+    }) => {
       if (text) {
         return (
-          <div style={style} className="product-badge__text" key={index.toString()}>{text}</div>
+          <div style={style} className="product-badge__text" key={id}>{text}</div>
         );
       }
 
@@ -102,7 +104,7 @@ const CardBadge = ({ badgeInfo, badgePosition }) => {
           src={src}
           alt={altText}
           aria-hidden={!altText}
-          key={index.toString()}
+          key={id}
         />
       );
     });
@@ -112,15 +114,15 @@ const CardBadge = ({ badgeInfo, badgePosition }) => {
     let customClass;
 
     if (productListType === 'productGrid' && showOnLists) {
-      customClass = 'productGridCustomContainer';
+      customClass = classes.productGridCustomContainer;
     }
 
     if (productListType === 'pdp' && productListSubType === 'mediaSection' && showOnPdp === true) {
-      customClass = 'pdpCustomContainer';
+      customClass = classes.pdpCustomContainer;
     }
 
     if (productListType === 'productSlider' && showOnSliders) {
-      customClass = 'slidersCustomContainer';
+      customClass = classes.slidersCustomContainer;
     }
     /**
      * A bit hacky, but we use the presence of the custom class as an indicator that something needs
@@ -130,11 +132,18 @@ const CardBadge = ({ badgeInfo, badgePosition }) => {
       return null;
     }
 
+    const positionClasses = {
+      topLeft: classes.topLeftContainer,
+      topRight: classes.topRightContainer,
+      bottomLeft: classes.bottomLeftContainer,
+      bottomRight: classes.bottomRightContainer,
+    };
+
     return [
       'image-badges',
       classes.baseContainer,
-      classes[`${badgePosition}Container`],
-      classes[customClass],
+      positionClasses[badgePosition],
+      customClass,
     ].join(' ');
   }, [badgePosition, productListSubType, productListType, classes]);
 
@@ -150,7 +159,13 @@ const CardBadge = ({ badgeInfo, badgePosition }) => {
 };
 
 CardBadge.propTypes = {
-  badgeInfo: PropTypes.arrayOf(PropTypes.object).isRequired,
+  badgeInfo: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    src: PropTypes.string,
+    altText: PropTypes.string,
+    text: PropTypes.string,
+    style: PropTypes.shape(),
+  })).isRequired,
   badgePosition: PropTypes.string.isRequired,
 };
 

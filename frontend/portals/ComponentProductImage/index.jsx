@@ -3,9 +3,10 @@ import PropTypes from 'prop-types';
 import { withProductListEntry, useProductListEntry } from '@shopgate/engage/product';
 import { makeStyles } from '@shopgate/engage/styles';
 import Badge from '../../components/Badge';
-import { badgePositionPdp, badgePositionSliders, badgePositionLists } from '../../config';
-
+import config from '../../config.json';
 import connect from '../connector';
+
+const { badgePositionPdp, badgePositionSliders, badgePositionLists } = config;
 
 const useStyles = makeStyles()(() => ({
   root: {
@@ -50,7 +51,13 @@ const ComponentProductImage = ({ children, badgeInfo }) => {
 
 ComponentProductImage.propTypes = {
   children: PropTypes.node.isRequired,
-  badgeInfo: PropTypes.arrayOf(PropTypes.object),
+  badgeInfo: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    src: PropTypes.string,
+    altText: PropTypes.string,
+    text: PropTypes.string,
+    style: PropTypes.shape(),
+  })),
 };
 
 ComponentProductImage.defaultProps = {
