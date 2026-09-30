@@ -1,17 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withProductListEntry, useProductListEntry } from '@shopgate/engage/product';
-import { css } from 'glamor';
+import { makeStyles } from '@shopgate/engage/styles';
 import Badge from '../../components/Badge';
-import { badgePositionPdp, badgePositionSliders, badgePositionLists } from '../../config';
-
+import config from '../../config.json';
 import connect from '../connector';
 
-const styles = {
-  root: css({
+const { badgePositionPdp, badgePositionSliders, badgePositionLists } = config;
+
+const useStyles = makeStyles()(() => ({
+  root: {
     position: 'relative',
-  }),
-};
+  },
+}));
 
 /**
  * @param {Array} badgeInfo Array of badge image urls
@@ -19,6 +20,7 @@ const styles = {
  * @returns {JSX.Element}
  */
 const ComponentProductImage = ({ children, badgeInfo }) => {
+  const { classes } = useStyles();
   const { productListType, productListSubType } = useProductListEntry();
 
   let badgePosition;
@@ -40,7 +42,7 @@ const ComponentProductImage = ({ children, badgeInfo }) => {
   }
 
   return (
-    <div className={styles.root}>
+    <div className={classes.root}>
       {children}
       <Badge badgePosition={badgePosition} badgeInfo={badgeInfo} />
     </div>
@@ -49,8 +51,13 @@ const ComponentProductImage = ({ children, badgeInfo }) => {
 
 ComponentProductImage.propTypes = {
   children: PropTypes.node.isRequired,
-  badgeInfo: PropTypes.arrayOf(PropTypes.string),
-
+  badgeInfo: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    src: PropTypes.string,
+    altText: PropTypes.string,
+    text: PropTypes.string,
+    style: PropTypes.shape(),
+  })),
 };
 
 ComponentProductImage.defaultProps = {

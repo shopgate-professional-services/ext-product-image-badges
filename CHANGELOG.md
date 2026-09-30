@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2.0.0] - 17-09-2026
+### Changed
+- Adopted the new engage theme: styling now uses `makeStyles` from `@shopgate/engage/styles` instead of glamor
+- `@shopgate/engage` is now a `7.32.0-beta.20` peer dependency (drops PWA 6 support)
+- Modernized the frontend toolchain (removed the obsolete `.babelrc` and legacy babel/react dev dependencies)
+- Deduplicated the badge rendering in the `Badge` component
+
 ## [1.7.0] - 02-07-2025
 ### Added
 - Add support for text-based badges
