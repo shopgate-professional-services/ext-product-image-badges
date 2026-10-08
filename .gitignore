@@ -61,6 +61,3 @@ frontend/config.json
 
 # JetBrains IDE files
 .idea/
-
-# npm lockfile (deps are resolved by the host app, not per-extension)
-frontend/package-lock.json
