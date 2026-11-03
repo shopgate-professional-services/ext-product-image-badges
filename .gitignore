@@ -58,3 +58,6 @@ typings/
 .env
 
 frontend/config.json
+
+# JetBrains IDE files
+.idea/

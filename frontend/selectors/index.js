@@ -1,7 +1,9 @@
 import { createSelector } from 'reselect';
 import { getProduct } from '@shopgate/engage/product';
 import { isTriggered } from '../helpers';
-import { badgeMap, badgeDisplayCount } from '../config';
+import config from '../config.json';
+
+const { badgeMap, badgeDisplayCount } = config;
 
 export const getBadgeInfo = createSelector(
   getProduct,
@@ -10,10 +12,16 @@ export const getBadgeInfo = createSelector(
       return [];
     }
 
-    const badgeInfo = badgeMap.filter(badge => isTriggered(productData, badge))
+    const badgeInfo = badgeMap
+      .map((badge, id) => ({
+        ...badge,
+        id,
+      }))
+      .filter(badge => isTriggered(productData, badge))
       .map(({
-        src, altText, text, style,
+        id, src, altText, text, style,
       }) => ({
+        id,
         src,
         altText,
         text,
