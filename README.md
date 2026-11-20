@@ -15,6 +15,8 @@ property exposed in the same location as tags.
 - Badge hierarchy is determined by the order of badges in badgeMap config. With highest priority starting at index 0.
 - Unique badge images can trigger for multiple tags or properties.
 - Configure on which places the badges should be shown or not (pdp, sliders, lists)
+- Limit single badges to some of those places with `showOn`.
+- Badges in the top left corner are placed below the discount badge of the theme when it is shown.
 
 ## Configuration
 
@@ -81,6 +83,25 @@ Example Value:
 }
 ```
 
+Each badge can have an optional `showOn` list with the places where it is shown: `pdp`, `sliders`
+and `lists` (category pages and search results). Without `showOn` the badge is shown in every place
+that is enabled with `showOnPdp`, `showOnSliders` and `showOnLists`. An empty list hides the badge
+everywhere.
+
+The following badge is only shown on the product detail page and in product sliders:
+
+```json
+{
+  "src": "exampleImage3.com",
+  "altText": "Top",
+  "triggerTags": ["top"],
+  "triggerProps": [],
+  "showOn": ["pdp", "sliders"]
+}
+```
+
+`badgeDisplayCount` counts the badges of each place after `showOn` is applied.
+
 #### badgeDisplayCount:
 
 This configuration is used to determine how many badges to display per product images. The badge hierarchy is determined
@@ -125,6 +146,17 @@ Default Values:
   "showOnLists": true
 }
 ```
+
+#### Discount badge
+
+When the theme shows its discount badge on a product image and the badge position of that place
+is `topLeft`, the badges are placed below the discount badge instead of overlapping it. On the
+product detail page the theme shows the discount badge on the image only when the widget setting
+`@shopgate/engage/product/components/ProductDiscountBadge` → `pdp.show` is enabled. The other
+positions are not affected.
+
+While the badges are placed below the discount badge, `top` from `badgeContainerStyling*` is not
+applied and `left` counts from the container of the discount badge.
 
 #### badgePositionPdp
 

@@ -7,6 +7,12 @@
       "type": "portals",
       "path": "frontend/portals/ComponentProductImage",
       "target": "component.product-image"
+    },
+    {
+      "id": "ProductBadgesAfter",
+      "type": "portals",
+      "path": "frontend/portals/ProductBadgesAfter",
+      "target": "component.product-badges.after"
     }
   ],
   "configuration": {
@@ -16,7 +22,7 @@
       "destination": "frontend",
       "params": {
         "label": "Mapping for tag and image srcs",
-        "description": "The various tags/properties and src associations for extension. The badge hierarchy for items with multiple trigger tags is determined by array.",
+        "description": "The various tags/properties and src associations for extension. The badge hierarchy for items with multiple trigger tags is determined by array. An optional showOn list (pdp, sliders, lists) limits where a badge is shown.",
         "type": "json"
       }
     },

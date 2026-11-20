@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2.1.0] - 20-11-2026
+### Added
+- Optional `showOn` list per badge in `badgeMap` to show a badge only on the pdp, in sliders or in lists
+- Badges in the top left corner are placed below the discount badge of the theme when it is shown
+
 ## [2.0.0] - 17-09-2026
 ### Changed
 - Adopted the new engage theme: styling now uses `makeStyles` from `@shopgate/engage/styles` instead of glamor
