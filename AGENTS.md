@@ -68,7 +68,7 @@ sgconnect frontend start --theme <theme> --host 127.0.0.1 --port 8080
 | --- | --- | --- |
 | `pdp` | `pdp` with sub type `mediaSection` | `Pdp` |
 | `sliders` | `productSlider` | `Sliders` |
-| `lists` | `productGrid` (category pages and search) | `Lists` |
+| `lists` | `productGrid` (category pages, search, product list widget, relations sheet) | `Lists` |
 
 Any other product list type has no area and renders no badges.
 
@@ -110,7 +110,8 @@ Future AI coding assistants and developers should check this Knowledge Base when
   `ProductBadgesAfter` passes its portal props `location` and `productId` to `useAreaBadges` as a
   fallback.
 - While stacked, the container is placed with `top: 100%` inside the theme's badge container.
-  `top` from `badgeContainerStyling*` does not apply, and `left` counts from that container.
+  `top`, `marginTop` and `alignItems` from `badgeContainerStyling*` do not apply, and `left`
+  counts from that container.
 - The key order in the `makeStyles` object of `components/Badge` matters: `stackedContainer` has
   to stay after the custom container keys so it wins over merchant styling.
 - The 5px gap below the discount badge uses the `* + &` selector, so it only exists when an

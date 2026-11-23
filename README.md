@@ -84,8 +84,8 @@ Example Value:
 ```
 
 Each badge can have an optional `showOn` list with the places where it is shown: `pdp`, `sliders`
-and `lists` (category pages and search results). Without `showOn` the badge is shown in every place
-that is enabled with `showOnPdp`, `showOnSliders` and `showOnLists`. An empty list hides the badge
+and `lists`. `lists` covers all product grids: category pages, search results, the product list
+widget and the relations sheet. Without `showOn` the badge is shown in every place that is enabled with `showOnPdp`, `showOnSliders` and `showOnLists`. An empty list hides the badge
 everywhere.
 
 The following badge is only shown on the product detail page and in product sliders:
@@ -155,8 +155,8 @@ product detail page the theme shows the discount badge on the image only when th
 `@shopgate/engage/product/components/ProductDiscountBadge` → `pdp.show` is enabled. The other
 positions are not affected.
 
-While the badges are placed below the discount badge, `top` from `badgeContainerStyling*` is not
-applied and `left` counts from the container of the discount badge.
+While the badges are placed below the discount badge, `top`, `marginTop` and `alignItems` from
+`badgeContainerStyling*` are not applied and `left` counts from the container of the discount badge.
 
 #### badgePositionPdp
 
@@ -196,7 +196,7 @@ Default Values:
 
 #### badgeContainerStylingPdp:
 
-Additional css styling for the badge container on the product detail page (Use glamor style object).
+Additional css styling for the badge container on the product detail page (Use a `makeStyles` style object).
 Default Values:
 
 ```json
@@ -207,7 +207,7 @@ Default Values:
 
 #### badgeContainerStylingSliders:
 
-Additional css styling for the badge container on product sliders (Use glamor style object).
+Additional css styling for the badge container on product sliders (Use a `makeStyles` style object).
 Default Values:
 
 ```json
@@ -218,33 +218,31 @@ Default Values:
 
 #### badgeContainerStylingLists:
 
-Additional css styling for the badge container on product lists (Use glamor style object).
+Additional css styling for the badge container on product lists (Use a `makeStyles` style object).
 Default Values:
 
 ```json
 {
-  "badgeContainerStylingPdp": {
-    "height": 35
-  }
+  "badgeContainerStylingLists": {}
 }
 ```
 
 #### badgeStylingPdp:
 
-Additional css styling for the badges on the product detail page (Use glamor style object).
+Additional css styling for the badges on the product detail page (Use a `makeStyles` style object).
 Default Values:
 
 ```json
 {
   "badgeStylingPdp": {
-    "height": 20
+    "height": 35
   }
 }
 ```
 
 #### badgeStylingSliders:
 
-Additional css styling for the badges on product sliders (Use glamor style object).
+Additional css styling for the badges on product sliders (Use a `makeStyles` style object).
 Default Values:
 
 ```json
@@ -257,12 +255,14 @@ Default Values:
 
 #### badgeStylingLists:
 
-Additional css styling for the badges on product lists (Use glamor style object).
+Additional css styling for the badges on product lists (Use a `makeStyles` style object).
 Default Values:
 
 ```json
 {
-  "badgeStylingLists": {}
+  "badgeStylingLists": {
+    "height": 20
+  }
 }
 ```
 

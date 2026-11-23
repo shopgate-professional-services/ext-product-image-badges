@@ -7,7 +7,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 ## [2.1.0] - 20-11-2026
 ### Added
 - Optional `showOn` list per badge in `badgeMap` to show a badge only on the pdp, in sliders or in lists
-- Badges in the top left corner are placed below the discount badge of the theme when it is shown
+
+### Changed
+- Badges in the top left corner are placed below the discount badge of the theme when it is shown. While they are placed there, `top`, `marginTop` and `alignItems` from `badgeContainerStyling*` are not applied and `left` counts from the container of the discount badge
+- Updated the PWA packages to 7.33.2 and added the standard test scripts
+
+### Removed
+- Removed the unused `reselect` dev dependency
 
 ## [2.0.0] - 17-09-2026
 ### Changed
