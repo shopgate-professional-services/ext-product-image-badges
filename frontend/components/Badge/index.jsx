@@ -1,13 +1,10 @@
 import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
-import { useProductListEntry } from '@shopgate/engage/product';
 import { makeStyles } from '@shopgate/engage/styles';
+import { AREA_PDP, AREA_SLIDERS, AREA_LISTS } from '../../helpers';
 import config from '../../config.json';
 
 const {
-  showOnLists,
-  showOnPdp,
-  showOnSliders,
   badgeContainerStylingPdp,
   badgeContainerStylingSliders,
   badgeContainerStylingLists,
@@ -51,6 +48,14 @@ const useStyles = makeStyles()(() => ({
   slidersCustomContainer: {
     ...badgeContainerStylingSliders,
   },
+  stackedContainer: {
+    alignItems: 'start',
+    top: '100%',
+    marginTop: 0,
+    '* + &': {
+      marginTop: 5,
+    },
+  },
   badge: {
     ...badgeStylingPdp,
   },
@@ -65,24 +70,27 @@ const useStyles = makeStyles()(() => ({
 /**
  * @param {Object} props component props
  * @param {Array} props.badgeInfo Array of badge image urls
+ * @param {string} props.area area the badges are rendered in (pdp, sliders, lists)
  * @param {string} props.badgePosition string to declare the badge position
+ * @param {boolean} props.stacked whether the badges are rendered below the discount badge
  * @returns {JSX.Element}
  */
-const CardBadge = ({ badgeInfo, badgePosition }) => {
+const CardBadge = ({
+  badgeInfo, area, badgePosition, stacked,
+}) => {
   const { classes } = useStyles();
-  const { productListType, productListSubType } = useProductListEntry();
 
   const badgeClass = useMemo(() => {
-    if (productListType === 'productSlider') {
+    if (area === AREA_SLIDERS) {
       return classes.badgeSliders;
     }
 
-    if (productListType === 'productGrid') {
+    if (area === AREA_LISTS) {
       return classes.badgeLists;
     }
 
     return classes.badge;
-  }, [classes, productListType]);
+  }, [classes, area]);
 
   const images = useMemo(() => {
     if (!Array.isArray(badgeInfo) || badgeInfo.length === 0) {
@@ -111,24 +119,13 @@ const CardBadge = ({ badgeInfo, badgePosition }) => {
   }, [badgeInfo, badgeClass]);
 
   const containerClasses = useMemo(() => {
-    let customClass;
+    const customClasses = {
+      [AREA_PDP]: classes.pdpCustomContainer,
+      [AREA_SLIDERS]: classes.slidersCustomContainer,
+      [AREA_LISTS]: classes.productGridCustomContainer,
+    };
 
-    if (productListType === 'productGrid' && showOnLists) {
-      customClass = classes.productGridCustomContainer;
-    }
-
-    if (productListType === 'pdp' && productListSubType === 'mediaSection' && showOnPdp === true) {
-      customClass = classes.pdpCustomContainer;
-    }
-
-    if (productListType === 'productSlider' && showOnSliders) {
-      customClass = classes.slidersCustomContainer;
-    }
-    /**
-     * A bit hacky, but we use the presence of the custom class as an indicator that something needs
-     * to be rendered.
-     */
-    if (!customClass) {
+    if (!customClasses[area]) {
       return null;
     }
 
@@ -142,10 +139,10 @@ const CardBadge = ({ badgeInfo, badgePosition }) => {
     return [
       'image-badges',
       classes.baseContainer,
-      positionClasses[badgePosition],
-      customClass,
+      stacked ? classes.stackedContainer : positionClasses[badgePosition],
+      customClasses[area],
     ].join(' ');
-  }, [badgePosition, productListSubType, productListType, classes]);
+  }, [area, badgePosition, stacked, classes]);
 
   if (!containerClasses || images.length === 0) {
     return null;
@@ -159,6 +156,7 @@ const CardBadge = ({ badgeInfo, badgePosition }) => {
 };
 
 CardBadge.propTypes = {
+  area: PropTypes.string.isRequired,
   badgeInfo: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number.isRequired,
     src: PropTypes.string,
@@ -166,7 +164,13 @@ CardBadge.propTypes = {
     text: PropTypes.string,
     style: PropTypes.shape(),
   })).isRequired,
-  badgePosition: PropTypes.string.isRequired,
+  badgePosition: PropTypes.string,
+  stacked: PropTypes.bool,
+};
+
+CardBadge.defaultProps = {
+  badgePosition: 'topLeft',
+  stacked: false,
 };
 
 export default CardBadge;

@@ -15,6 +15,8 @@ property exposed in the same location as tags.
 - Badge hierarchy is determined by the order of badges in badgeMap config. With highest priority starting at index 0.
 - Unique badge images can trigger for multiple tags or properties.
 - Configure on which places the badges should be shown or not (pdp, sliders, lists)
+- Limit single badges to some of those places with `showOn`.
+- Badges in the top left corner are placed below the discount badge of the theme when it is shown.
 
 ## Configuration
 
@@ -81,6 +83,25 @@ Example Value:
 }
 ```
 
+Each badge can have an optional `showOn` list with the places where it is shown: `pdp`, `sliders`
+and `lists`. `lists` covers all product grids: category pages, search results, the product list
+widget and the relations sheet. Without `showOn` the badge is shown in every place that is enabled with `showOnPdp`, `showOnSliders` and `showOnLists`. A single place can also be
+given as a string, for example `"showOn": "pdp"`. An empty list hides the badge everywhere.
+
+The following badge is only shown on the product detail page and in product sliders:
+
+```json
+{
+  "src": "exampleImage3.com",
+  "altText": "Top",
+  "triggerTags": ["top"],
+  "triggerProps": [],
+  "showOn": ["pdp", "sliders"]
+}
+```
+
+`badgeDisplayCount` counts the badges of each place after `showOn` is applied.
+
 #### badgeDisplayCount:
 
 This configuration is used to determine how many badges to display per product images. The badge hierarchy is determined
@@ -126,6 +147,21 @@ Default Values:
 }
 ```
 
+#### Discount badge
+
+When the theme shows its discount badge on a product image and the badge position of that place
+is `topLeft`, the badges are placed below the discount badge instead of overlapping it. On the
+product detail page the theme shows the discount badge on the image only when the widget setting
+`@shopgate/engage/product/components/ProductDiscountBadge` → `pdp.show` is enabled. The other
+positions are not affected.
+
+While the badges are placed below the discount badge, `top`, `marginTop` and `alignItems` from
+`badgeContainerStyling*` are not applied and `left` counts from the container of the discount badge.
+
+Product sliders with the price turned off don't show the discount badge. For discounted products
+in such a slider the badges still take the position below the discount badge, so they sit in the
+corner of its empty container.
+
 #### badgePositionPdp
 
 This configuration is used to define where the badge is positioned on the product image on the product detail page.
@@ -164,7 +200,7 @@ Default Values:
 
 #### badgeContainerStylingPdp:
 
-Additional css styling for the badge container on the product detail page (Use glamor style object).
+Additional css styling for the badge container on the product detail page (Use a `makeStyles` style object).
 Default Values:
 
 ```json
@@ -175,7 +211,7 @@ Default Values:
 
 #### badgeContainerStylingSliders:
 
-Additional css styling for the badge container on product sliders (Use glamor style object).
+Additional css styling for the badge container on product sliders (Use a `makeStyles` style object).
 Default Values:
 
 ```json
@@ -186,33 +222,31 @@ Default Values:
 
 #### badgeContainerStylingLists:
 
-Additional css styling for the badge container on product lists (Use glamor style object).
+Additional css styling for the badge container on product lists (Use a `makeStyles` style object).
 Default Values:
 
 ```json
 {
-  "badgeContainerStylingPdp": {
-    "height": 35
-  }
+  "badgeContainerStylingLists": {}
 }
 ```
 
 #### badgeStylingPdp:
 
-Additional css styling for the badges on the product detail page (Use glamor style object).
+Additional css styling for the badges on the product detail page (Use a `makeStyles` style object).
 Default Values:
 
 ```json
 {
   "badgeStylingPdp": {
-    "height": 20
+    "height": 35
   }
 }
 ```
 
 #### badgeStylingSliders:
 
-Additional css styling for the badges on product sliders (Use glamor style object).
+Additional css styling for the badges on product sliders (Use a `makeStyles` style object).
 Default Values:
 
 ```json
@@ -225,12 +259,14 @@ Default Values:
 
 #### badgeStylingLists:
 
-Additional css styling for the badges on product lists (Use glamor style object).
+Additional css styling for the badges on product lists (Use a `makeStyles` style object).
 Default Values:
 
 ```json
 {
-  "badgeStylingLists": {}
+  "badgeStylingLists": {
+    "height": 20
+  }
 }
 ```
 

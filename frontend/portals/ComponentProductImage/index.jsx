@@ -1,12 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withProductListEntry, useProductListEntry } from '@shopgate/engage/product';
 import { makeStyles } from '@shopgate/engage/styles';
 import Badge from '../../components/Badge';
-import config from '../../config.json';
-import connect from '../connector';
-
-const { badgePositionPdp, badgePositionSliders, badgePositionLists } = config;
+import useAreaBadges from '../../hooks/useAreaBadges';
 
 const useStyles = makeStyles()(() => ({
   root: {
@@ -15,53 +11,32 @@ const useStyles = makeStyles()(() => ({
 }));
 
 /**
- * @param {Array} badgeInfo Array of badge image urls
- * @param {React.ReactNode} children .
+ * Renders the badges on top of the product image. When the theme shows its discount badge in the
+ * same corner, the badges are rendered below it by the ProductBadgesAfter portal instead.
+ * @param {Object} props component props
+ * @param {React.ReactNode} props.children .
  * @returns {JSX.Element}
  */
-const ComponentProductImage = ({ children, badgeInfo }) => {
+const ComponentProductImage = ({ children }) => {
   const { classes } = useStyles();
-  const { productListType, productListSubType } = useProductListEntry();
+  const {
+    area, badges, position, stackBelowDiscount,
+  } = useAreaBadges();
 
-  let badgePosition;
-
-  if (!badgeInfo || badgeInfo.length === 0) {
+  if (!area || badges.length === 0 || stackBelowDiscount) {
     return children;
-  }
-
-  if (productListType === 'pdp' && productListSubType === 'mediaSection') {
-    badgePosition = badgePositionPdp;
-  }
-
-  if (productListType === 'productSlider') {
-    badgePosition = badgePositionSliders;
-  }
-
-  if (productListType === 'productGrid') {
-    badgePosition = badgePositionLists;
   }
 
   return (
     <div className={classes.root}>
       {children}
-      <Badge badgePosition={badgePosition} badgeInfo={badgeInfo} />
+      <Badge area={area} badgePosition={position} badgeInfo={badges} />
     </div>
   );
 };
 
 ComponentProductImage.propTypes = {
   children: PropTypes.node.isRequired,
-  badgeInfo: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    src: PropTypes.string,
-    altText: PropTypes.string,
-    text: PropTypes.string,
-    style: PropTypes.shape(),
-  })),
 };
 
-ComponentProductImage.defaultProps = {
-  badgeInfo: null,
-};
-
-export default withProductListEntry(connect(ComponentProductImage));
+export default ComponentProductImage;
