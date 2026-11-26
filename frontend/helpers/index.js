@@ -78,13 +78,20 @@ export const getBadgeArea = (productListType, productListSubType) => {
 };
 
 /**
- * Badges without a showOn list are shown in every area.
+ * Badges without showOn are shown in every area. A single area can be given as a string.
  * @param {Object} badge config badgeMap info
  * @param {string} area badge area
  * @returns {boolean}
  */
-export const isShownInArea = (badge, area) =>
-  !Array.isArray(badge?.showOn) || badge.showOn.includes(area);
+export const isShownInArea = (badge, area) => {
+  const showOn = badge?.showOn;
+
+  if (typeof showOn === 'string') {
+    return showOn === area;
+  }
+
+  return !Array.isArray(showOn) || showOn.includes(area);
+};
 
 /**
  * @param {Object} productData productDataObject

@@ -52,13 +52,13 @@ jest.mock('../config.json', () => ({
  * Renders the hook in a test component and returns its result.
  * @returns {Object}
  */
-const renderAreaBadges = (productContext = {}, fallback = undefined) => {
+const renderAreaBadges = (productContext = {}) => {
   const result = {};
   /**
    * @returns {null}
    */
   const Probe = () => {
-    Object.assign(result, useAreaBadges(fallback));
+    Object.assign(result, useAreaBadges());
     return null;
   };
   render((
@@ -181,26 +181,5 @@ describe('useAreaBadges', () => {
 
     expect(result.badges.map(({ altText }) => altText)).toEqual(['New']);
     expect(result.stackBelowDiscount).toBe(false);
-  });
-
-  it('should use the fallback area and product outside of a product list entry', () => {
-    setProduct({
-      tags: ['new'],
-      price: { discount: 20 },
-    });
-    mockWidgetSettings = { pdp: { show: true } };
-    mockProductListEntry = {
-      productId: null,
-      productListType: null,
-    };
-
-    const result = renderAreaBadges({ productId: 'p1' }, {
-      area: 'pdp',
-      productId: 'p1',
-    });
-
-    expect(result.area).toBe('pdp');
-    expect(result.badges.map(({ altText }) => altText)).toEqual(['New']);
-    expect(result.stackBelowDiscount).toBe(true);
   });
 });

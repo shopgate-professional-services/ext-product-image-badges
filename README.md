@@ -85,8 +85,8 @@ Example Value:
 
 Each badge can have an optional `showOn` list with the places where it is shown: `pdp`, `sliders`
 and `lists`. `lists` covers all product grids: category pages, search results, the product list
-widget and the relations sheet. Without `showOn` the badge is shown in every place that is enabled with `showOnPdp`, `showOnSliders` and `showOnLists`. An empty list hides the badge
-everywhere.
+widget and the relations sheet. Without `showOn` the badge is shown in every place that is enabled with `showOnPdp`, `showOnSliders` and `showOnLists`. A single place can also be
+given as a string, for example `"showOn": "pdp"`. An empty list hides the badge everywhere.
 
 The following badge is only shown on the product detail page and in product sliders:
 
@@ -157,6 +157,10 @@ positions are not affected.
 
 While the badges are placed below the discount badge, `top`, `marginTop` and `alignItems` from
 `badgeContainerStyling*` are not applied and `left` counts from the container of the discount badge.
+
+Product sliders with the price turned off don't show the discount badge. For discounted products
+in such a slider the badges still take the position below the discount badge, so they sit in the
+corner of its empty container.
 
 #### badgePositionPdp
 

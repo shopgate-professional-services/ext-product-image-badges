@@ -106,9 +106,6 @@ Future AI coding assistants and developers should check this Knowledge Base when
   and also needs the widget setting
   `@shopgate/engage/product/components/ProductDiscountBadge` → `pdp.show`. The badges themselves
   use the product of the list entry, which can be a variant.
-- Some layouts render the pdp discount badge outside of the product list entry. That is why
-  `ProductBadgesAfter` passes its portal props `location` and `productId` to `useAreaBadges` as a
-  fallback.
 - While stacked, the container is placed with `top: 100%` inside the theme's badge container.
   `top`, `marginTop` and `alignItems` from `badgeContainerStyling*` do not apply, and `left`
   counts from that container.

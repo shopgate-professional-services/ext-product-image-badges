@@ -111,6 +111,11 @@ describe('Helpers', () => {
       expect(isShownInArea({ showOn: ['pdp', 'sliders'] }, 'lists')).toBe(false);
     });
 
+    it('should treat a single showOn string as a list with one area', () => {
+      expect(isShownInArea({ showOn: 'pdp' }, 'pdp')).toBe(true);
+      expect(isShownInArea({ showOn: 'pdp' }, 'lists')).toBe(false);
+    });
+
     it('should hide badges with an empty showOn list', () => {
       expect(isShownInArea({ showOn: [] }, 'pdp')).toBe(false);
     });

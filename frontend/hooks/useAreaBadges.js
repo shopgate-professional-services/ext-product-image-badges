@@ -47,17 +47,11 @@ export const PDP_DISCOUNT_BADGE_SETTINGS = '@shopgate/engage/product/components/
 /**
  * Resolves the badges of the current product list entry and whether they have to be placed
  * below the discount badge of the theme.
- * @param {Object} [fallback] values for locations outside of a product list entry
- * @param {string} [fallback.area] badge area
- * @param {string} [fallback.productId] product id
  * @returns {Object} area, badges, position and stackBelowDiscount
  */
-const useAreaBadges = (fallback = {}) => {
-  const entry = useProductListEntry() || {};
-  const productId = entry.productId || fallback.productId;
-  const area = getBadgeArea(entry.productListType, entry.productListSubType)
-    || fallback.area
-    || null;
+const useAreaBadges = () => {
+  const { productId, productListType, productListSubType } = useProductListEntry() || {};
+  const area = getBadgeArea(productListType, productListSubType);
   const { show = false, position } = areaSettings[area] || {};
 
   const { productId: pdpProductId } = useContext(ProductContext) || {};

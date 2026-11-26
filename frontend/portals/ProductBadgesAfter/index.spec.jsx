@@ -4,9 +4,8 @@ import ComponentProductImage from '../ComponentProductImage';
 import ProductBadgesAfter from './index';
 
 let mockAreaBadges = {};
-const mockUseAreaBadges = jest.fn(() => mockAreaBadges);
 
-jest.mock('../../hooks/useAreaBadges', () => (...args) => mockUseAreaBadges(...args));
+jest.mock('../../hooks/useAreaBadges', () => () => mockAreaBadges);
 
 jest.mock('../../config.json', () => ({
   badgeContainerStylingPdp: {},
@@ -79,31 +78,5 @@ describe('Badge portals', () => {
     ));
 
     expect(container.innerHTML).toBe('<span>image</span>');
-  });
-
-  it('should pass the pdp location and product of the portal as fallback', () => {
-    mockAreaBadges = {
-      area: 'pdp',
-      badges,
-      position: 'topLeft',
-      stackBelowDiscount: true,
-    };
-
-    render(<ProductBadgesAfter location="productDiscountBadge" productId="base" />);
-
-    expect(mockUseAreaBadges).toHaveBeenLastCalledWith({
-      area: 'pdp',
-      productId: 'base',
-    });
-    expect(screen.getByAltText('New').parentElement.className).toMatch(/stackedContainer/);
-  });
-
-  it('should not pass a fallback area for other locations', () => {
-    render(<ProductBadgesAfter location="productGrid" productId="p1" />);
-
-    expect(mockUseAreaBadges).toHaveBeenLastCalledWith({
-      area: null,
-      productId: 'p1',
-    });
   });
 });
